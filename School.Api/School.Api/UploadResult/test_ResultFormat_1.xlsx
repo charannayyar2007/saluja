@@ -1,0 +1,11 @@
+<div>
+	<table cellspacing="0" rules="all" border="1" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col">AdmissionID</th><th scope="col">Maths</th><th scope="col">Hindi</th><th scope="col">English</th><th scope="col">Science</th><th scope="col">SST</th><th scope="col">Sanskrit</th><th scope="col">Computer</th><th scope="col">GK</th><th scope="col">ArtCraft</th><th scope="col">French</th><th scope="col">Music</th><th scope="col">Dance</th><th scope="col">Sports</th><th scope="col">Swimming</th><th scope="col">Robotics</th><th scope="col">Literacy</th><th scope="col">Numeracy</th><th scope="col">Concept</th><th scope="col">CCA</th><th scope="col">EVS</th><th scope="col">punctable</th><th scope="col">Rules</th><th scope="col">Opinions</th><th scope="col">Materials</th><th scope="col">Curiosity</th><th scope="col">Completeness</th><th scope="col">Actions</th>
+		</tr><tr>
+			<td>20/0213</td><td>&nbsp;</td><td>0</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr>
+			<td>20/0273</td><td>&nbsp;</td><td>0</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>0</td><td>0</td><td>0</td><td>0</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,260 @@
+﻿@using School.Api.Controllers;
+@model ModelClass
+@{
+    ViewBag.Title = "Homework";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+@Html.Partial("~/Views/Shared/_header.cshtml", Model.Header)
+<!-- Header Menu Area End Here -->
+<!-- Page Area Start Here -->
+<div class="dashboard-page-one">
+    @Html.Partial("~/Views/Shared/_teacherSideNav.cshtml")
+    <div class="dashboard-content-one">
+
+        <div class="breadcrumbs-area">
+            <h3>Student Homework</h3>
+            <ul>
+                <li> <a href="index.html">Home</a> </li>
+                <li>Homework</li>
+            </ul>
+        </div>
+        <!-- Breadcubs Area End Here -->
+        <div class="row">
+            <!-- Student Attendence Search Area Start Here -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="new-added-form">
+                            <div class="row">
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label>Select Class *</label>
+                                    <select class="select2 form-control" id="txtClass">
+                                        <option value="">Select Class</option>
+                                        <option value="1">Nursery</option>
+                                        <option value="2">Play</option>
+                                        <option value="3">One</option>
+                                        <option value="4">Two</option>
+                                        <option value="5">Three</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label>Select Section *</label>
+                                    <select class="select2 form-control" id="txtSection">
+                                        <option value="0">Select Section</option>
+                                        <option value="1">A</option>
+                                        <option value="2">B</option>
+                                        <option value="3">C</option>
+                                        <option value="4">D</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label>Subject *</label>
+                                    <select class="select2 form-control" id="txtSubject">
+                                        <option value="0">Select Subject</option>
+                                        <option value="1">Maths</option>
+                                        <option value="2">Science</option>
+                                        <option value="3">Social</option>
+                                        <option value="4">Chemistry</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label>Date *</label>
+                                    <input type="date" placeholder="" class="form-control" id="txtDate">
+                                </div>
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label>Last Submission Date *</label>
+                                    <input type="date" placeholder="" class="form-control" id="txtLastDate">
+                                </div>
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label class="text-dark-medium">Upload PDF/JPEG</label>
+                                    <input type="file" class="form-control-file" id="txtFile">
+                                </div>
+                                @*<div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label class="text-dark-medium">Upload Audio</label>
+                                    <input type="file" class="form-control-file" id="fileselect">
+                                </div>
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label class="text-dark-medium">Upload Video</label>
+                                    <input type="file" class="form-control-file" id="fileselect">
+                                </div>*@
+                                <div class="col-12 form-group mg-t-8">
+                                    <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" id="btnSave">Save</button>
+                                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Student Attendence Search Area End Here -->
+            <!-- Student Attendence Area Start Here -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="heading-layout1">
+                            <div class="item-title">
+                                <h3>All Homework List</h3>
+                            </div>
+                        </div>
+                        <form class="mg-b-20">
+                            <div class="row gutters-8">
+                                <div class="col-lg-4 col-12 form-group">
+                                    <input type="text" placeholder="Class" class="form-control">
+                                </div>
+                                <div class="col-lg-3 col-12 form-group">
+                                    <input type="text" placeholder="Subject" class="form-control">
+                                </div>
+                                <div class="col-lg-3 col-12 form-group">
+                                    <input type="date" placeholder="Date" class="form-control">
+                                </div>
+                                <div class="col-lg-2 col-12 form-group">
+                                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="table-responsive">
+                            <table class="table display data-table text-nowrap lefttd">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input checkAll">
+                                                <label class="form-check-label">Sr.</label>
+                                            </div>
+                                        </th>
+                                        <th>Class</th>
+                                        <th>Section</th>
+                                        <th>Subject</th>
+                                        <th>Upload Date</th>
+                                        <th>Last Submission Date</th>
+                                        <th>Homework File</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="styletd">
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input">
+                                                <label class="form-check-label">1</label>
+                                            </div>
+                                        </td>
+                                        <td>1st</td>
+                                        <td>A</td>
+                                        <td>Maths</td>
+                                        <td>12/06/2020</td>
+                                        <td>14/06/2020</td>
+                                        <td><a href="#">mathsch1.pdf</a></td>
+                                        <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input">
+                                                <label class="form-check-label">1</label>
+                                            </div>
+                                        </td>
+                                        <td>1st</td>
+                                        <td>A</td>
+                                        <td>Maths</td>
+                                        <td>12/06/2020</td>
+                                        <td>14/06/2020</td>
+                                        <td><a href="#">mathsch1.pdf</a></td>
+                                        <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input">
+                                                <label class="form-check-label">1</label>
+                                            </div>
+                                        </td>
+                                        <td>1st</td>
+                                        <td>A</td>
+                                        <td>Maths</td>
+                                        <td>12/06/2020</td>
+                                        <td>14/06/2020</td>
+                                        <td><a href="#">mathsch1.pdf</a></td>
+                                        <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input">
+                                                <label class="form-check-label">1</label>
+                                            </div>
+                                        </td>
+                                        <td>1st</td>
+                                        <td>A</td>
+                                        <td>Maths</td>
+                                        <td>12/06/2020</td>
+                                        <td>14/06/2020</td>
+                                        <td><a href="#">mathsch1.pdf</a></td>
+                                        <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input">
+                                                <label class="form-check-label">1</label>
+                                            </div>
+                                        </td>
+                                        <td>1st</td>
+                                        <td>A</td>
+                                        <td>Maths</td>
+                                        <td>12/06/2020</td>
+                                        <td>14/06/2020</td>
+                                        <td><a href="#">mathsch1.pdf</a></td>
+                                        <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input">
+                                                <label class="form-check-label">1</label>
+                                            </div>
+                                        </td>
+                                        <td>1st</td>
+                                        <td>A</td>
+                                        <td>Maths</td>
+                                        <td>12/06/2020</td>
+                                        <td>14/06/2020</td>
+                                        <td><a href="#">mathsch1.pdf</a></td>
+                                        <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input">
+                                                <label class="form-check-label">1</label>
+                                            </div>
+                                        </td>
+                                        <td>1st</td>
+                                        <td>A</td>
+                                        <td>Maths</td>
+                                        <td>12/06/2020</td>
+                                        <td>14/06/2020</td>
+                                        <td><a href="#">mathsch1.pdf</a></td>
+                                        <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="col-lg-2 col-12 form-group">
+                                <button type="submit" class="fw-btn-fill btn-gradient-yellow">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Student Attendence Area End Here -->
+        <footer class="footer-wrap-layout1">
+            <div class="copyright">© 2020 Copyrights 
+            <a href="https://www.salujagoldschool.com/" target="_blank">Saluja Gold International SchoolN.</a> All rights reserved. Designed & Developed by 
+            <a href="https://www.india-interactive.net/" target="_blank">India Interactive</a>
+            </div>
+   
+    </footer>
+</div>
+</div>
+

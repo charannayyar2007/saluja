@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="admin_salujaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Assigment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="enrollmentCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="classid" Type="int" />
+    <Property Name="sectionId" Type="int" />
+    <Property Name="subjectId" Type="int" />
+    <Property Name="uploadedby" Type="int" />
+    <Property Name="deadlineDate" Type="date" />
+    <Property Name="uploadeOn" Type="datetime" />
+    <Property Name="filepath" Type="nvarchar(max)" />
+    <Property Name="fileName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AssID" Type="nvarchar" MaxLength="100" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+    <Property Name="uploadstatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="AssignmentUploadStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uploadstatus" Type="bit" />
+    <Property Name="subjectid" Type="int" />
+    <Property Name="classId" Type="int" />
+    <Property Name="enrollmentCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AssId" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="attendanceId" Type="int" />
+    <Property Name="punchdate" Type="datetime" />
+    <Property Name="markedby" Type="int" />
+  </EntityType>
+  <EntityType Name="AttendanceMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Attstatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="shortName" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'admin_saluja.dbo.ClassmaptoSubject' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ClassmaptoSubject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassId" Type="int" />
+    <Property Name="SubjectId" Type="int" />
+  </EntityType>
+  <EntityType Name="ClassMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="className" Type="nvarchar" MaxLength="100" />
+    <Property Name="createdon" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ErrorLogs">
+    <Key>
+      <PropertyRef Name="Sno" />
+    </Key>
+    <Property Name="Sno" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ErrorType" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ErrorMessage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StackTrace" Type="nvarchar(max)" />
+    <Property Name="ErrorDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HolidayMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HolidayDate" Type="date" />
+    <Property Name="createon" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MapQualification">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="qualificationid" Type="int" />
+    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmptyMessage" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NavigationMenu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="ParentMenuId" Type="nvarchar" MaxLength="200" />
+    <Property Name="ParentNavigationMenu" Type="nvarchar" MaxLength="200" />
+    <Property Name="Area" Type="nvarchar" MaxLength="200" />
+    <Property Name="ControllerName" Type="nvarchar" MaxLength="200" />
+    <Property Name="ActionName" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsExternal" Type="bit" />
+    <Property Name="ExternalUrl" Type="nvarchar" MaxLength="200" />
+    <Property Name="DisplayOrder" Type="int" />
+    <Property Name="Permitted" Type="bit" />
+    <Property Name="Visible" Type="bit" />
+    <Property Name="iconName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PassRecovery">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="nvarchar" MaxLength="100" />
+    <Property Name="token" Type="nvarchar" MaxLength="200" />
+    <Property Name="createdOn" Type="datetime" />
+    <Property Name="expiryDate" Type="datetime" />
+    <Property Name="isExpire" Type="bit" />
+    <Property Name="isReset" Type="bit" />
+  </EntityType>
+  <EntityType Name="QualificationMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Qualification" Type="nvarchar" MaxLength="100" />
+    <Property Name="createOn" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'admin_saluja.dbo.report' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="report">
+          <Property Name="admissionId" Type="nvarchar" MaxLength="100" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="PRESENT_STATUS" Type="varchar" MaxLength="10" />
+          <Property Name="days" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'admin_saluja.dbo.ResultDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ResultDetail">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="AdmissionID" />
+      <PropertyRef Name="SubId" />
+      <PropertyRef Name="SessionId" />
+      <PropertyRef Name="ResultId" />
+      <PropertyRef Name="EvaluationMarks" />
+      <PropertyRef Name="IsEvaluteType" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdmissionID" Type="int" Nullable="false" />
+    <Property Name="SubId" Type="int" Nullable="false" />
+    <Property Name="SessionId" Type="int" Nullable="false" />
+    <Property Name="ResultId" Type="int" Nullable="false" />
+    <Property Name="EvaluationMarks" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsEvaluteType" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'admin_saluja.dbo.ResultMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ResultMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResultType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" />
+    <Property Name="createdOn" Type="datetime" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="RoleMenuPermission">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="NavigationMenuId" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sectionName" Type="nvarchar" MaxLength="20" />
+    <Property Name="createOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SessionMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="starthrs" Type="int" />
+    <Property Name="startmin" Type="int" />
+    <Property Name="endHrs" Type="int" />
+    <Property Name="endMin" Type="int" />
+    <Property Name="startTimeformate" Type="nvarchar" MaxLength="10" />
+    <Property Name="EndTimeformate" Type="nvarchar" MaxLength="10" />
+    <Property Name="sessionYear" Type="nvarchar" MaxLength="100" />
+    <Property Name="Years" Type="int" />
+    <Property Name="Months" Type="int" />
+    <Property Name="EndMonths" Type="int" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admissionId" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="firstname" Type="nvarchar" MaxLength="100" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="gender" Type="nvarchar" MaxLength="100" />
+    <Property Name="fathername" Type="nvarchar" MaxLength="100" />
+    <Property Name="motherName" Type="nvarchar" MaxLength="100" />
+    <Property Name="classId" Type="int" />
+    <Property Name="sectionId" Type="int" />
+    <Property Name="rollNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar(max)" />
+    <Property Name="DOB" Type="date" />
+  </EntityType>
+  <EntityType Name="StudentAssignmentFiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssId" Type="nvarchar" MaxLength="200" />
+    <Property Name="UniqueId" Type="uniqueidentifier" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="1000" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="1000" />
+    <Property Name="DownloadCheck" Type="bit" />
+    <Property Name="AssignmentId" Type="int" />
+  </EntityType>
+  <EntityType Name="studentmaptoClass">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="AdmissionId" Type="nvarchar" MaxLength="255" />
+    <Property Name="ClassId" Type="float" />
+    <Property Name="SectionId" Type="float" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubjectMaster">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+    <Property Name="createdon" Type="datetime" />
+    <Property Name="isAcademic" Type="bit" />
+    <Property Name="Sub_Head" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TeacherDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="enrollmentCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="midName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="500" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Dob" Type="nvarchar" MaxLength="20" />
+    <Property Name="Doj" Type="nvarchar" MaxLength="20" />
+    <Property Name="DateOfexit" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeachermaptoClassSubject">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="classId" Type="int" />
+    <Property Name="subjectid" Type="int" />
+    <Property Name="sectionid" Type="int" />
+    <Property Name="enrollmentCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="createdOn" Type="datetime" />
+    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleId" Type="int" />
+    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PasswordHash" Type="varbinary(max)" Nullable="false" />
+    <Property Name="PasswordSalt" Type="varbinary(max)" Nullable="false" />
+    <Property Name="createOn" Type="datetime" />
+    <Property Name="lastLogin" Type="datetime" />
+    <Property Name="numberOfFiledLogin" Type="int" />
+    <Property Name="isActive" Type="bit" />
+    <Property Name="isDelete" Type="bit" />
+    <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="100" />
+    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'admin_saluja.saluja.studentProfileDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="studentProfileDescription">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentProfileId" Type="int" />
+    <Property Name="uniqueId" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'admin_saluja.saluja.studentProfileEvalution' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="studentProfileEvalution">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="E1" Type="nvarchar" MaxLength="50" />
+    <Property Name="E2" Type="nvarchar" MaxLength="50" />
+    <Property Name="E3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+    <Property Name="classId" Type="nvarchar" MaxLength="100" />
+    <Property Name="stuniqueId" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Function Name="Proc_Assingrole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UniqueId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="roleId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="proc_att" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="classId" Type="int" Mode="In" />
+    <Parameter Name="sectionid" Type="int" Mode="In" />
+    <Parameter Name="year" Type="int" Mode="In" />
+    <Parameter Name="month" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_CheckPermisssion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="nvarchar" Mode="In" />
+    <Parameter Name="actionName" Type="nvarchar" Mode="In" />
+    <Parameter Name="controllerName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_GetAttendaceReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="classId" Type="int" Mode="In" />
+    <Parameter Name="sectionid" Type="int" Mode="In" />
+    <Parameter Name="year" Type="int" Mode="In" />
+    <Parameter Name="month" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_GetAttendaceReportByAdmssionid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="admissionId" Type="nvarchar" Mode="In" />
+    <Parameter Name="year" Type="int" Mode="In" />
+    <Parameter Name="month" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_IsValidToken" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="token" Type="nvarchar" Mode="In" />
+    <Parameter Name="userId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_PasswordRecover" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="nvarchar" Mode="In" />
+    <Parameter Name="callFrom" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_StudentDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="admissionId" Type="varchar" Mode="In" />
+    <Parameter Name="firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="fathername" Type="nvarchar" Mode="In" />
+    <Parameter Name="motherName" Type="nvarchar" Mode="In" />
+    <Parameter Name="classId" Type="int" Mode="In" />
+    <Parameter Name="sectionId" Type="int" Mode="In" />
+    <Parameter Name="rollNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="phone" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ViewResultClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="classId" Type="bigint" Mode="In" />
+    <Parameter Name="sectionId" Type="bigint" Mode="In" />
+    <Parameter Name="sessionId" Type="bigint" Mode="In" />
+    <Parameter Name="admissionId" Type="varchar" Mode="In" />
+    <Parameter Name="name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Prop_UpdataPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="nvarchar" Mode="In" />
+    <Parameter Name="PasswordHas" Type="varbinary(max)" Mode="In" />
+    <Parameter Name="passwordSalt" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="proc_ClassSubjectExcel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saluja">
+    <Parameter Name="classId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_GetAttendaceByAdmissionId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saluja">
+    <Parameter Name="admissionId" Type="nvarchar" Mode="In" />
+    <Parameter Name="year" Type="int" Mode="In" />
+    <Parameter Name="month" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_ViewAttendaceDatewise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saluja">
+    <Parameter Name="classId" Type="int" Mode="In" />
+    <Parameter Name="sectionId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Proc_ViewStudentAssignment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saluja">
+    <Parameter Name="action" Type="int" Mode="In" />
+    <Parameter Name="classid" Type="int" Mode="In" />
+    <Parameter Name="subjectid" Type="int" Mode="In" />
+    <Parameter Name="uploadOn" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="admin_salujaModelStoreContainer">
+    <EntitySet Name="Assigment" EntityType="Self.Assigment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssignmentUploadStatus" EntityType="Self.AssignmentUploadStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AttendanceMaster" EntityType="Self.AttendanceMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassMaster" EntityType="Self.ClassMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HolidayMaster" EntityType="Self.HolidayMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MapQualification" EntityType="Self.MapQualification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NavigationMenu" EntityType="Self.NavigationMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PassRecovery" EntityType="Self.PassRecovery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QualificationMaster" EntityType="Self.QualificationMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleMenuPermission" EntityType="Self.RoleMenuPermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SessionMaster" EntityType="Self.SessionMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentAssignmentFiles" EntityType="Self.StudentAssignmentFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="studentmaptoClass" EntityType="Self.studentmaptoClass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubjectMaster" EntityType="Self.SubjectMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeacherDetail" EntityType="Self.TeacherDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeachermaptoClassSubject" EntityType="Self.TeachermaptoClassSubject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassmaptoSubject" EntityType="Self.ClassmaptoSubject" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ClassmaptoSubject].[Id] AS [Id], 
+    [ClassmaptoSubject].[ClassId] AS [ClassId], 
+    [ClassmaptoSubject].[SubjectId] AS [SubjectId]
+    FROM [dbo].[ClassmaptoSubject] AS [ClassmaptoSubject]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ResultDetail" EntityType="Self.ResultDetail" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ResultDetail].[id] AS [id], 
+    [ResultDetail].[AdmissionID] AS [AdmissionID], 
+    [ResultDetail].[SubId] AS [SubId], 
+    [ResultDetail].[SessionId] AS [SessionId], 
+    [ResultDetail].[ResultId] AS [ResultId], 
+    [ResultDetail].[EvaluationMarks] AS [EvaluationMarks], 
+    [ResultDetail].[IsEvaluteType] AS [IsEvaluteType]
+    FROM [dbo].[ResultDetail] AS [ResultDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ResultMaster" EntityType="Self.ResultMaster" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ResultMaster].[id] AS [id], 
+    [ResultMaster].[ResultType] AS [ResultType], 
+    [ResultMaster].[CreatedDate] AS [CreatedDate]
+    FROM [dbo].[ResultMaster] AS [ResultMaster]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="studentProfileDescription" EntityType="Self.studentProfileDescription" store:Type="Tables" store:Schema="saluja">
+      <DefiningQuery>SELECT 
+    [studentProfileDescription].[id] AS [id], 
+    [studentProfileDescription].[studentProfileId] AS [studentProfileId], 
+    [studentProfileDescription].[uniqueId] AS [uniqueId]
+    FROM [saluja].[studentProfileDescription] AS [studentProfileDescription]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="studentProfileEvalution" EntityType="Self.studentProfileEvalution" store:Type="Tables" store:Schema="saluja">
+      <DefiningQuery>SELECT 
+    [studentProfileEvalution].[id] AS [id], 
+    [studentProfileEvalution].[E1] AS [E1], 
+    [studentProfileEvalution].[E2] AS [E2], 
+    [studentProfileEvalution].[E3] AS [E3], 
+    [studentProfileEvalution].[Comments] AS [Comments], 
+    [studentProfileEvalution].[classId] AS [classId], 
+    [studentProfileEvalution].[stuniqueId] AS [stuniqueId]
+    FROM [saluja].[studentProfileEvalution] AS [studentProfileEvalution]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

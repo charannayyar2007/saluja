@@ -1,0 +1,66 @@
+﻿<script id="PlacesTemplate" type="text/x-jquery-tmpl">
+  
+        <!-- Student Attendence Search Area Start Here -->
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form class="new-added-form">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-6 col-12 form-group">
+
+                                <label>Select Class</label>
+                                <select id="clsList" class="select2 form-control">
+                                    <option value="0">Select Class</option>
+                                    {{each(i) ClassesMasters}}
+
+                                    <option value="${Id}">${ClassName}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                <label>Select Section</label>
+                                <select id="sectionlist" class="select2 form-control" onchange="GetAllStudentByClassAndSection()">
+                                    <option value="0">Select Section</option>
+                                    {{each(i) SectionsMasters}}
+                                    <option value="${Id}">${SectionName}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                <label>Student Name</label>
+                                <input type="text" placeholder="Name" id="NameAuto" onkeyUp="GetStudent()" class="form-control">
+                                <ul id="namedatalist" class="new-li">
+                                </ul>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                <label>Admission ID</label>
+                                <input type="text" placeholder="Admission ID" id="enrollmentId" onkeyUp="GetStudentByAppId()" class="form-control">
+                                <ul id="Erndatalist" class="new-li">
+                                </ul>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                <label>Mark Attendance</label>
+                                <select class="select2 form-control" id="attType">
+                                    <option value="0" data-select2-id="9">Select</option>
+                                    <option value="P">Present</option>
+                                    <option value="A">Absent</option>
+                                </select>
+
+                            </div>
+                            <span id="error"></span>
+                            <div class="col-12 form-group mg-t-8">
+                                <span onclick="MarkAttendace()" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</span>
+                                <spain onclick="RestmarkAttendace()" class="btn-fill-lg bg-blue-dark btn-hover-yellow" id="restMarkAtt">Reset</spain>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Student Attendence Search Area End Here -->
+        <!-- Student Attendence Area Start Here -->
+ 
+ 
+</script>

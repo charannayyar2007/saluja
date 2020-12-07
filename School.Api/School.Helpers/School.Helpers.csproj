@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DA0C153E-33CB-4DDA-8CEC-32E79C757627}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>School.Helpers</RootNamespace>
+    <AssemblyName>School.Helpers</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\3rdPartyLib\packages\AutoMapper.10.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\3rdPartyLib\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoMapper\AttendanceMapperProfile.cs" />
+    <Compile Include="AutoMapper\AutoMapperProfiles.cs" />
+    <Compile Include="AutoMapper\HomeWorkMapperProfiles.cs" />
+    <Compile Include="AutoMapper\Masters\BaseMapperProfiles.cs" />
+    <Compile Include="AutoMapper\Masters\ClassMapperProfiles.cs" />
+    <Compile Include="AutoMapper\Masters\SectionMapperProfiles.cs" />
+    <Compile Include="AutoMapper\Masters\SubjectMapperProfiles.cs" />
+    <Compile Include="AutoMapper\NavMapperProfile.cs" />
+    <Compile Include="AutoMapper\StudentMapperProfile.cs" />
+    <Compile Include="AutoMapper\Teacher\TeacherMapperProfile.cs" />
+    <Compile Include="AutoMapper\UserMapperProfiles.cs" />
+    <Compile Include="HttpClientHelper\HttpClientRequest.cs" />
+    <Compile Include="HttpClientHelper\IHttpClientRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain.School\School.Domain.csproj">
+      <Project>{03D90C31-A96B-4F03-813D-0958E743666C}</Project>
+      <Name>School.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infra.School.Data\Infra.School.Data.csproj">
+      <Project>{1B5F5FFB-35E3-400A-9A77-E6ADF9FA7693}</Project>
+      <Name>Infra.School.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\School.Dto\School.Dto.csproj">
+      <Project>{59224984-B000-4C11-880F-E613DD579CDE}</Project>
+      <Name>School.Dto</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

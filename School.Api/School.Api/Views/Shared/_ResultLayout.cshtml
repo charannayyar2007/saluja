@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="/Content/css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/Content/css/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="/Content/css/all.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="/Content/fonts/flaticon.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="/Content/css/animate.min.css">
+    <!-- Date Picker CSS -->
+    <link rel="stylesheet" href="/Content/css/datepicker.min.css">
+    <!-- Select 2 CSS -->
+    <link rel="stylesheet" href="/Content/css/select2.min.css">
+    <!-- Data Table CSS -->
+    <link rel="stylesheet" href="/Content/css/jquery.dataTables.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Content/style.css">
+    <!-- Modernize js -->
+    @*<link href="~/Content/AutoComplete.css" rel="stylesheet" />*@
+    <script src="/Scripts/modernizr-3.6.0.min.js"></script>
+    @*<link href="~/Content/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />*@
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <div id="wrapper" class="wrapper bg-ash">
+        <!-- Header Menu Area Start Here -->
+        <div class="navbar navbar-expand-md header-menu-one bg-light">
+            <div class="nav-bar-header-one">
+                <div class="header-logo">
+                    <a href="index.html">
+                        <img src="/Content/img/logo-new.png" alt="logo">
+                    </a>
+                </div>
+                <div class="toggle-button sidebar-toggle">
+                    <button type="button" class="item-link">
+                        <span class="btn-icon-wrap">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="d-md-none mobile-nav-bar">
+                <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
+                    <i class="far fa-arrow-alt-circle-down"></i>
+                </button>
+                <button type="button" class="navbar-toggler sidebar-toggle-mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
+                <ul class="navbar-nav">
+                    <li class="navbar-item header-search-bar">
+                        <div class="input-group stylish-input-group">
+                            <span class="input-group-addon">
+
+                            </span>
+
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="navbar-item dropdown header-admin">
+                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            <div class="admin-title">
+                                <h5 class="item-title" id="userNameHead"></h5>
+                                <span id="roleType"></span>
+                            </div>
+                            <div class="admin-img">
+                                <img src="/Content/img/figure/admin.jpg" alt="Admin">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="item-header">
+                                <h6 class="item-title" id="userName"></h6>
+                            </div>
+                            <div class="item-content">
+                                <ul class="settings-list">
+                                    <li><a href="#"><i class="flaticon-user"></i>My Profile</a></li>
+                                    <li><a onclick="LogOut()" style="cursor: pointer;"><i class="flaticon-turn-off"></i>Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Header Menu Area End Here -->
+        <!-- Page Area Start Here -->
+        <div class="dashboard-page-one">
+            <!-- Sidebar Area Start Here -->
+
+            @Html.Partial("_teacherSideNav")
+            <!-- Sidebar Area End Here -->
+            <div class="dashboard-content-one">
+                @RenderBody()
+                <!-- Breadcubs Area Start Here -->
+                <!-- Breadcubs Area End Here -->
+                <!-- Student Attendence Area End Here -->
+                <footer class="footer-wrap-layout1" style="position: absolute; bottom: 1px;">
+                    <div class="copyright">© Copyrights <a href="https://www.salujagoldschool.com/" target="_blank">Saluja School</a> 2020. All rights reserved. Designed by <a href="https://www.india-interactive.net/" target="_blank">India Interactive</a></div>
+                </footer>
+            </div>
+        </div>
+        <!-- Page Area End Here -->
+    </div>
+
+    <!-- Login Page End Here -->
+    <script src="/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.tmpl.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/Scripts/plugins.js"></script>
+    <!-- Popper js -->
+    <script src="/Scripts/popper.min.js"></script>
+    <!-- Custom Js -->
+    <script src="/Scripts/main.js"></script>
+
+
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

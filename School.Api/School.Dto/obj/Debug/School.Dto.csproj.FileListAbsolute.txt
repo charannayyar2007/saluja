@@ -1,0 +1,9 @@
+E:\Applications\School\School.Api\School.Dto\bin\Debug\School.Dto.dll
+E:\Applications\School\School.Api\School.Dto\bin\Debug\School.Dto.pdb
+E:\Applications\School\School.Api\School.Dto\bin\Debug\School.Utility.dll
+E:\Applications\School\School.Api\School.Dto\bin\Debug\School.Utility.pdb
+E:\Applications\School\School.Api\School.Dto\obj\Debug\School.Dto.csprojAssemblyReference.cache
+E:\Applications\School\School.Api\School.Dto\obj\Debug\School.Dto.csproj.CoreCompileInputs.cache
+E:\Applications\School\School.Api\School.Dto\obj\Debug\School.Dto.csproj.CopyComplete
+E:\Applications\School\School.Api\School.Dto\obj\Debug\School.Dto.dll
+E:\Applications\School\School.Api\School.Dto\obj\Debug\School.Dto.pdb

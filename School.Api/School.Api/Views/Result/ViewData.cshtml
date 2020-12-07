@@ -1,0 +1,237 @@
+﻿@using PagedList.Mvc
+@model  PagedList.IPagedList<School.Domain.Student.StudentDetail>
+@{
+    ViewBag.Title = "View Result";
+    Layout = "~/Views/Shared/_ResultLayout.cshtml";
+}
+<style>
+    .ul.pagination {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul.pagination li {
+        display: inline;
+    }
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+            ul.pagination li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            ul.pagination li a:hover:not(.active) {
+                background-color: #ddd;
+            }
+</style>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm("ViewResult", "Result", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Select Class *</label>
+                            <select class="select2 form-control" id="sltclass" name="sltclass" onchange="classVal();">
+                                <option value="0">Select Class</option>
+                                @foreach (var cls in ViewBag.Master.ClassesMasters)
+                                {
+                                    <option value="@cls.Id">@cls.ClassName</option>
+                                }
+                            </select>
+                            <input type="hidden" id="hdnclass" name="hdnclass" />
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Select Section *</label>
+                            <select class="select2 form-control" id="sltsection" name="sltsection" onchange="sectionVal();">
+                                <option value="0">Select Section</option>
+                                <option value="1">A</option>
+                                <option value="2">B</option>
+                            </select>
+                            <input type="hidden" id="hdnsection" name="hdnsection" />
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Select Session *</label>
+                            <select class="select2 form-control" id="sltsession" name="sltsession" onchange="sessionVal();">
+                                <option value="0">Select Session</option>
+                                @foreach (var cls in ViewBag.Master.SessionMasters)
+                                {
+                                    <option value="@cls.id">@cls.sessionYear</option>
+                                }
+                            </select>
+                            <input type="hidden" id="hdnsession" name="hdnsession" />
+                        </div>
+
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Enrollment ID</label>
+                            <input type="text" id="admissionId" name="admissionId" placeholder="Enrollment ID" class="form-control">
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Student Name</label>
+                            <input type="text" placeholder="Name" class="form-control" id="stdname" name="stdname" readonly="">
+                        </div>
+                        <div class="col-12 form-group mg-t-8">
+                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">View</button>
+                            <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        function classVal() {
+                            var selectedOption = $("#sltclass option:selected").text();
+                            // Add the selected drop down text to a hidden field
+                            document.getElementById("hdnclass").value = selectedOption;
+                            // now post the form
+                        }
+
+                        function sectionVal() {
+                            var selectedOption = $("#sltsection option:selected").text();
+                            // Add the selected drop down text to a hidden field
+                            document.getElementById("hdnsection").value = selectedOption;
+                            // now post the form
+                        }
+
+                        function sessionVal() {
+                            var selectedOption = $("#sltsession option:selected").text();
+                            // Add the selected drop down text to a hidden field
+                            document.getElementById("hdnsession").value = selectedOption;
+                            // now post the form
+                        }
+                    </script>
+                }
+            </div>
+        </div>
+    </div>
+
+    @if (ViewBag.flag == "1")
+    {
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-10">
+                            <h3>Class : @ViewBag.ClassName - <span class="mr-50">@ViewBag.SectionName</span> Session : @ViewBag.SessionName</h3>
+                        </div>
+                        <div class="col-2 form-group mg-t-8">
+                            <button type="submit" class="btn-lg mb-12 btn-primary pull-right">Download All</button>
+                        </div>
+                    </div>
+                    <div id="example_wrapper" class="dataTables_wrapper no-footer">
+                        <div class="dataTables_length" id="example_length"><label>Show <select name="example_length" aria-controls="example" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
+                        <div id="example_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example"></label></div><table id="example" class="table table-striped table-bordered dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="example_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 187px;" aria-sort="ascending" aria-label="Enrollment ID: activate to sort column descending">Enrollment ID</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 197px;" aria-label="Student Name: activate to sort column ascending">Student Name</th>
+                                    @*<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 340px;" aria-label="Result Type: activate to sort column ascending">Result Type</th>*@
+                                    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 102px;" aria-label="Action: activate to sort column ascending">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="pntr">
+                                @for (int i = 0; i < Model.Count; i++)
+                                {
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">@Model[i].admissionId</td>
+                                    <td>@Model[i].firstname</td>
+                                    <td><a onclick="AdmissionVal('@Model[i].admissionId');" data-toggle="modal" data-target="#resultgrade"><i class="fa fa-eye text-success"></i></a></td>
+                                    @*<td><a  onclick="Validate();"><i class="fa fa-eye text-success"></i></a></td>*@
+                                   
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div id="container" style="margin-left: 20px">
+                            <p></p>
+                            <p></p>
+                            <div class="pagination" style="margin-left: 400px">
+                                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                                of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("ViewResult", new { page, FormMethod.Post }))
+                            </div>
+                        </div>
+
+                        @*<div class="dataTables_info" id="example_info" role="status" aria-live="polite">Showing 1 to @Model.PageCount of @Model.PageCount entries</div>*@
+                        @*<div class="dataTables_paginate paging_simple_numbers" id="example_paginate">
+                                <a class="paginate_button previous disabled" aria-controls="example" data-dt-idx="0" tabindex="0" id="example_previous">Previous</a>
+                                <span><a class="paginate_button current" aria-controls="example" data-dt-idx="1" tabindex="0">1</a></span>
+                                <a class="paginate_button next disabled" aria-controls="example" data-dt-idx="2" tabindex="0" id="example_next">Next</a>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="hdnadmvalue" name="hdnadmvalue" />
+
+
+        <div class="modal fade" id="resultgrade" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-lgr">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("ViewResultType", "Result", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                <label>Result Type *</label>
+                                <select class="select2 form-control" id="sltresult" name="sltresult">
+                                    <option value="0">Select</option>
+                                    <option value="1">Term</option>
+                                    <option value="2">Cyclic</option>
+                                    <option value="3">Periodic</option>
+                                    <option value="4">Annual</option>
+                                </select>
+                            </div>
+                            <div class="col-12 form-group mg-t-8">
+                                @*<button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">View Result</button>data-target="#annual-grade3"*@
+                                <a onclick="Validate();" data-toggle="modal"><i class="fa fa-eye text-success"></i></a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function AdmissionVal(adm) {
+                document.getElementById("hdnadmvalue").value = adm;
+                document.getElementById("resultgrade").style.display = "none";
+            }
+
+            function Validate() {
+
+                var selectValue = document.getElementById("sltresult").options[document.getElementById("sltresult").selectedIndex].value;
+                if (selectValue == "0") {
+                    alert("please select result type");
+                    return false;
+                }
+
+                $.ajax({
+                type: "POST",
+                url: 'http://localhost:65234/Result/MarkSheet?id=' + document.getElementById("hdnadmvalue").value + "&rid=" + selectValue,
+                contentType: "application/html; charset=utf-8",
+                success: function (data) {
+                    document.getElementById("annual").innerHTML = data.GridHtml;
+                    document.getElementById("annual").style.display = "block";
+                },
+                error: function () {
+                    alert("Error while showing data");
+                }
+            });
+            }
+        </script>
+        <div class="modal" id="annual" role="dialog">
+            </div>
+
+
+            }
+        </div>

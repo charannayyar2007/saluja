@@ -1,0 +1,78 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Teacher Dashboard</title>
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="/Content/css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/Content/css/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="/Content/fonts/flaticon.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="/Content/css/animate.min.css">
+    <!-- Date Picker CSS -->
+    <link rel="stylesheet" href="/Content/css/datepicker.min.css">
+    <!-- Select 2 CSS -->
+    <link rel="stylesheet" href="/Content/css/select2.min.css">
+    <!-- Data Table CSS -->
+    <link rel="stylesheet" href="/Content/css/jquery.dataTables.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Content/style.css">
+    <!-- Modernize js -->
+    <script src="/Scripts/modernizr-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <div id="wrapper" class="wrapper bg-ash">
+        <!-- Header Menu Area Start Here -->
+
+        @RenderBody()
+        <!-- Sidebar Area Start Here -->
+        <!-- Sidebar Area End Here -->
+
+    </div>
+    <!-- Page Area End Here -->
+    <!-- Login Page End Here -->
+    <div id="error" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content" style=" width: 427px;">
+            <span class="close">&times;</span>
+            <p style="color:red;" id="ModelError"></p>
+        </div>
+
+    </div>
+    <script src="/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.tmpl.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/Scripts/plugins.js"></script>
+    <!-- Popper js -->
+    <script src="/Scripts/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    @*<script src="/Scripts/bootstrap.min.js"></script>*@
+    <!-- Select 2 Js -->
+    @*<script src="/Scripts/select2.min.js"></script>*@
+
+    @*<script src="/Scripts/jquery.scrollUp.min.js"></script>*@
+    <!-- Scroll Up Js -->
+    <!-- Custom Js -->
+    <script src="/Scripts/main.js"></script>
+
+    @*<script src="~/Scripts/Product/Common.js"></script>
+    <script src="~/Scripts/Product/Teacher.js"></script>
+    <script src="~/Scripts/Product/Homework.js"></script>
+    <script src="~/Scripts/Product/Attendance.js"></script>*@
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

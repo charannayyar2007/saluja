@@ -1,0 +1,44 @@
+﻿@using School.Api.Controllers;
+@model ModelClass
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+@section scripts {
+
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/Product/Keys.js"></script>
+<script src="~/Scripts/Product/Common.js"></script>
+<script src="~/Scripts/Product/UserManagement.js"></script>
+<script src="~/Scripts/Product/dataTableAjax.js"></script>
+<script src="~/Scripts/Product/AutoComplete.js"></script>
+<script src="~/Scripts/Product/Teacher.js"></script>
+<script src="~/Scripts/Product/Attendance.js"></script>
+<script src="~/Scripts/Product/Homework.js"></script>
+<script src="~/Scripts/Product/Result.js"></script>
+@Html.Partial("~/Views/Shared/_header.cshtml")
+<!-- Header Menu Area End Here -->
+<!-- Page Area Start Here -->
+<div class="dashboard-page-one">
+    @Html.Partial("~/Views/Shared/_teacherSideNav.cshtml")
+    <div class="dashboard-content-one">
+        <div class="breadcrumbs-area">
+            <h3 id="breadCrumTitle"></h3>
+        </div>
+        <div class="row">
+
+            <div id="dashboardContent">
+
+            </div>
+            <div id="GridColumn" style="    width: 100%;"></div>
+
+        </div>
+        <div class="loader" id="loaders" style="display:none"></div>
+        <!-- Student Attendence Area End Here -->
+        <footer class="footer-wrap-layout1">
+            <div class="copyright">© Copyrights <a href="https://www.salujagoldschool.com/" target="_blank">Saluja School</a> 2020. All rights reserved. Designed by <a href="https://www.india-interactive.net/" target="_blank">India Interactive</a></div>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,195 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_AdminLayout</title>
+    <link rel="stylesheet" href="/Content/css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/Content/css/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+    <link href="~/Content/css/bootstrap3.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-select.css" rel="stylesheet" />
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="/Content/css/all.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="/Content/fonts/flaticon.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="/Content/css/animate.min.css">
+    <!-- Date Picker CSS -->
+    <link rel="stylesheet" href="/Content/css/datepicker.min.css">
+    <!-- Select 2 CSS -->
+    <link rel="stylesheet" href="/Content/css/select2.min.css">
+    <!-- Data Table CSS -->
+    <link rel="stylesheet" href="/Content/css/jquery.dataTables.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Content/style.css">
+    <!-- Modernize js -->
+    <script src="/Scripts/modernizr-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <div id="wrapper" class="wrapper bg-ash">
+        <!-- Header Menu Area Start Here -->
+        <div class="navbar navbar-expand-md header-menu-one bg-light">
+            <div class="nav-bar-header-one">
+                <div class="header-logo"> <a href="index.html"> <img src="~/Content/img/logo-new.png" alt="logo"> </a> </div>
+                <div class="toggle-button sidebar-toggle">
+                    <button type="button" class="item-link"> <span class="btn-icon-wrap"> <span></span> <span></span> <span></span> </span> </button>
+                </div>
+            </div>
+            <div class="d-md-none mobile-nav-bar">
+                <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false"> <i class="far fa-arrow-alt-circle-down"></i> </button>
+                <button type="button" class="navbar-toggler sidebar-toggle-mobile"> <i class="fas fa-bars"></i> </button>
+            </div>
+            <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
+                <ul class="navbar-nav" style="width: 90%">
+                    <li class="navbar-item header-search-bar">
+                        <div class="input-group stylish-input-group">
+                            <span class="input-group-addon">
+
+                            </span>
+
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="navbar-item dropdown header-admin">
+                        <div class="admin-title">
+                            <h5 class="item-title">Admin &nbsp;&nbsp; <i onclick="LogOut()" class="fas fa-sign-out-alt text-danger"></i></h5>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Header Menu Area End Here -->
+        <!-- Page Area Start Here -->
+        <div class="dashboard-page-one">
+            <!-- Sidebar Area Start Here -->
+            <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color" style="margin-top: -20px;">
+                <div class="mobile-sidebar-header d-md-none">
+                    <div class="header-logo"> <a href="index.html"><img src="img/logo-new.png" alt="logo"></a> </div>
+                </div>
+                <div class="sidebar-menu-content">
+                    <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                        <li class="nav-item">
+                            <a href="admin-index.html" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-create-teachers-account.html" class="nav-link"><i class="flaticon-classmates"></i><span>Teachers</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-create-team-account.html" class="nav-link">
+                                <i class="fa fa-users" aria-hidden="true"></i><span>Accounts</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/addstudent" class="nav-link">
+                                <i class="fa fa-plus" aria-hidden="true"></i><span>Add Student</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-homework.html" class="nav-link">
+                                <i class="fa fa-book" aria-hidden="true"></i><span>Homework</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-fee-collection.html" class="nav-link"><i class="flaticon-technological"></i><span>Fee Collection</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AttendaceView" class="nav-link"><i class="flaticon-checklist"></i><span>Attendance Report</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-checklist"></i><span>Report Card</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-download-video.html" class="nav-link">
+                                <i class="fa fa-download" aria-hidden="true"></i><span>Download Video</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-holidays.html" class="nav-link menu-active">
+                                <i class="fa fa-umbrella-beach" aria-hidden="true"></i><span>Holidays</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-birthday.html" class="nav-link">
+                                <i class="fa fa-birthday-cake" aria-hidden="true"></i><span>Upcoming Birthday</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-queries.html" class="nav-link">
+                                <i class="fa fa-question" aria-hidden="true"></i><span>Queries</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-change-password.html" class="nav-link">
+                                <i class="fa fa-key" aria-hidden="true"></i><span>Change Password</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Sidebar Area End Here -->
+            <div class="dashboard-content-one">
+
+                <!-- Header Menu Area End Here -->
+                <!-- Page Area Start Here -->
+                <!-- Sidebar Area Start Here -->
+                <!-- Sidebar Area End Here -->
+
+                @RenderBody();
+                <!-- Student Attendence Area End Here -->
+                <div class="loader" id="loaders" style="display:none"></div>
+                <footer class="footer-wrap-layout1">
+                    <div class="copyright">© Copyrights <a href="https://www.salujagoldschool.com/" target="_blank">Saluja School</a> 2020. All rights reserved. Designed by <a href="https://www.india-interactive.net/" target="_blank">India Interactive</a></div>
+                </footer>
+            </div>
+
+        </div>
+        <div id="error" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content" style=" width: 427px;">
+                <span class="close">&times;</span>
+                <p style="color:red;" id="ModelError"></p>
+            </div>
+
+        </div>
+    </div>
+    <script src="/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap-select.js"></script>
+    <script src="~/Scripts/bootstrap3.2.js"></script>
+    <script src="~/Scripts/jquery.tmpl.min.js"></script>
+
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+
+    <!-- Plugins js -->
+    <script src="/Scripts/plugins.js"></script>
+    <!-- Popper js -->
+    <script src="/Scripts/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    @*<script src="/Scripts/bootstrap.min.js"></script>*@
+    <!-- Select 2 Js -->
+    @*<script src="/Scripts/select2.min.js"></script>*@
+
+    @*<script src="/Scripts/jquery.scrollUp.min.js"></script>*@
+    <!-- Scroll Up Js -->
+    <!-- Custom Js -->
+    <script src="/Scripts/main.js"></script>
+    <script>
+        function LogOut() {
+            sessionStorage.clear()
+            window.location.href = "/Admin/LogOut";
+        }
+    </script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿@using School.Api.Controllers;
+@model ModelClass
+@{
+
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+
+
+@Html.Partial("~/Views/Shared/_header.cshtml", Model.Header)
+<!-- Header Menu Area End Here -->
+<!-- Page Area Start Here -->
+<div class="dashboard-page-one">
+    @Html.Partial("~/Views/Shared/_teacherSideNav.cshtml")
+
+
+    <div class="dashboard-content-one">
+
+        <!-- Breadcubs Area Start Here -->
+        <div class="breadcrumbs-area">
+            <h3>View Student Attendance</h3>
+        </div>
+        <!-- Breadcubs Area End Here -->
+        <div class="row">
+            <!-- Student Attendence Search Area Start Here -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="new-added-form">
+                            <div class="row">
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label>Select Class</label>
+                                    <select class="select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option value="" data-select2-id="3">Select Class</option>
+                                        <option value="1">Nursery</option>
+                                        <option value="2">Play</option>
+                                        <option value="3">One</option>
+                                        <option value="4">Two</option>
+                                        <option value="5">Three</option>
+                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="2" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-2ur4-container"><span class="select2-selection__rendered" id="select2-2ur4-container" role="textbox" aria-readonly="true" title="Select Class">Select Class</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label>Select Section</label>
+                                    <select class="select2 select2-hidden-accessible" data-select2-id="4" tabindex="-1" aria-hidden="true">
+                                        <option value="0" data-select2-id="6">Select Section</option>
+                                        <option value="1">A</option>
+                                        <option value="2">B</option>
+                                        <option value="3">C</option>
+                                        <option value="4">D</option>
+                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="5" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-idl8-container"><span class="select2-selection__rendered" id="select2-idl8-container" role="textbox" aria-readonly="true" title="Select Section">Select Section</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label>Select Month</label>
+                                    <select class="select2 select2-hidden-accessible" data-select2-id="7" tabindex="-1" aria-hidden="true">
+                                        <option value="0" data-select2-id="9">Select Month</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="8" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-38ov-container"><span class="select2-selection__rendered" id="select2-38ov-container" role="textbox" aria-readonly="true" title="Select Month">Select Month</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                </div>
+                                <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                    <label>Select Session</label>
+                                    <select class="select2 select2-hidden-accessible" data-select2-id="10" tabindex="-1" aria-hidden="true">
+                                        <option value="0" data-select2-id="12">Select Session</option>
+                                        <option value="1">2016-2017</option>
+                                        <option value="2">2017-2018</option>
+                                        <option value="3">2018-2019</option>
+                                        <option value="4">2020-2021</option>
+                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="11" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-png1-container"><span class="select2-selection__rendered" id="select2-png1-container" role="textbox" aria-readonly="true" title="Select Session">Select Session</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                </div>
+                                <div class="col-12 form-group mg-t-8">
+                                    <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Search</button>
+                                    <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Student Attendence Search Area End Here -->
+            <!-- Student Attendence Area Start Here -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="heading-layout1">
+                            <div class="item-title">
+                                <h3>Attendence Sheet Of Class One: Section A, April 2019</h3>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table bs-table table-striped table-bordered text-nowrap">
+                                <thead id="head">
+                                  
+                                </thead>
+                                <tbody class="lefttd" id="innervalue">
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Student Attendence Area End Here -->
+        <footer class="footer-wrap-layout1">
+            <div class="copyright">© Copyrights <a href="https://www.salujagoldschool.com/" target="_blank">Saluja School</a> 2020. All rights reserved. Designed by <a href="https://www.india-interactive.net/" target="_blank">India Interactive</a></div>
+        </footer>
+    </div>
+</div>

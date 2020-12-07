@@ -1,0 +1,58 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="/Scripts/jquery-3.4.1.js"></script>
+<script src="/Scripts/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (sessionStorage.getItem('accessToken') == null) {
+            window.location.href = "/Login/index";
+        }
+
+        $('#linkClose').click(function () {
+            $('#divError').hide('fade');
+        });
+
+        $('#errorModal').on('hidden.bs.modal', function () {
+            window.location.href = "/Login/index";
+        });
+
+        $('#btnLoadEmployees').click(function () {
+            $.ajax({
+                url: '/api/Values',
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer '
+                        + sessionStorage.getItem("accessToken")
+                },
+                success: function (data) {
+                    $('#divData').removeClass('hidden');
+                    $('#tblBody').empty();
+                    $.each(data, function (index, value) {
+                        var row = $('<tr><td>' + value.ID + '</td><td>'
+                            + value.FirstName + '</td><td>'
+                            + value.LastName + '</td><td>'
+                            + value.Gender + '</td><td>'
+                            + value.Salary + '</td></tr>');
+                        $('#tblData').append(row);
+                    });
+                },
+                error: function (jQXHR) {
+                    // If status code is 401, access token expired, so
+                    // redirect the user to the login page
+                    if (jQXHR.status == "401") {
+                        $('#errorModal').modal('show');
+                    }
+                    else {
+                        $('#divErrorText').text(jqXHR.responseText);
+                        $('#divError').show('fade');
+                    }
+                }
+            });
+        });
+    });
+</script>

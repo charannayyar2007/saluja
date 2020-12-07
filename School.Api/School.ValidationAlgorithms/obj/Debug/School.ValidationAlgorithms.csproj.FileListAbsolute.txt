@@ -1,0 +1,6 @@
+E:\Applications\School\School.Api\School.ValidationAlgorithms\bin\Debug\School.ValidationAlgorithms.dll
+E:\Applications\School\School.Api\School.ValidationAlgorithms\bin\Debug\School.ValidationAlgorithms.pdb
+E:\Applications\School\School.Api\School.ValidationAlgorithms\obj\Debug\School.ValidationAlgorithms.csproj.CoreCompileInputs.cache
+E:\Applications\School\School.Api\School.ValidationAlgorithms\obj\Debug\School.ValidationAlgorithms.dll
+E:\Applications\School\School.Api\School.ValidationAlgorithms\obj\Debug\School.ValidationAlgorithms.pdb
+E:\Applications\School\School.Api\School.ValidationAlgorithms\obj\Debug\School.ValidationAlgorithms.csprojAssemblyReference.cache

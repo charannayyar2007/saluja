@@ -1,0 +1,6 @@
+E:\Applications\School\School.Api\Domain.School\bin\Debug\School.Domain.dll
+E:\Applications\School\School.Api\Domain.School\bin\Debug\School.Domain.pdb
+E:\Applications\School\School.Api\Domain.School\obj\Debug\School.Domain.csproj.CoreCompileInputs.cache
+E:\Applications\School\School.Api\Domain.School\obj\Debug\School.Domain.dll
+E:\Applications\School\School.Api\Domain.School\obj\Debug\School.Domain.pdb
+E:\Applications\School\School.Api\Domain.School\obj\Debug\School.Domain.csprojAssemblyReference.cache

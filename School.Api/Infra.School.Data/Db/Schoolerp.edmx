@@ -1,0 +1,1445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="admin_salujaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Assigment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="enrollmentCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="classid" Type="int" />
+          <Property Name="sectionId" Type="int" />
+          <Property Name="subjectId" Type="int" />
+          <Property Name="uploadedby" Type="int" />
+          <Property Name="deadlineDate" Type="date" />
+          <Property Name="uploadeOn" Type="datetime" />
+          <Property Name="filepath" Type="nvarchar(max)" />
+          <Property Name="fileName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssID" Type="nvarchar" MaxLength="100" />
+          <Property Name="Remark" Type="nvarchar(max)" />
+          <Property Name="uploadstatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="AssignmentUploadStatus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uploadstatus" Type="bit" />
+          <Property Name="subjectid" Type="int" />
+          <Property Name="classId" Type="int" />
+          <Property Name="enrollmentCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssId" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnrollmentCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="attendanceId" Type="int" />
+          <Property Name="punchdate" Type="datetime" />
+          <Property Name="markedby" Type="int" />
+        </EntityType>
+        <EntityType Name="AttendanceMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Attstatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="shortName" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'admin_saluja.dbo.ClassmaptoSubject' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ClassmaptoSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassId" Type="int" />
+          <Property Name="SubjectId" Type="int" />
+        </EntityType>
+        <EntityType Name="ClassMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="className" Type="nvarchar" MaxLength="100" />
+          <Property Name="createdon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ErrorLogs">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ErrorType" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ErrorMessage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StackTrace" Type="nvarchar(max)" />
+          <Property Name="ErrorDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="HolidayMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HolidayDate" Type="date" />
+          <Property Name="createon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MapQualification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="qualificationid" Type="int" />
+          <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmptyMessage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NavigationMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentMenuId" Type="nvarchar" MaxLength="200" />
+          <Property Name="ParentNavigationMenu" Type="nvarchar" MaxLength="200" />
+          <Property Name="Area" Type="nvarchar" MaxLength="200" />
+          <Property Name="ControllerName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ActionName" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsExternal" Type="bit" />
+          <Property Name="ExternalUrl" Type="nvarchar" MaxLength="200" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="Permitted" Type="bit" />
+          <Property Name="Visible" Type="bit" />
+          <Property Name="iconName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PassRecovery">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="nvarchar" MaxLength="100" />
+          <Property Name="token" Type="nvarchar" MaxLength="200" />
+          <Property Name="createdOn" Type="datetime" />
+          <Property Name="expiryDate" Type="datetime" />
+          <Property Name="isExpire" Type="bit" />
+          <Property Name="isReset" Type="bit" />
+        </EntityType>
+        <EntityType Name="QualificationMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Qualification" Type="nvarchar" MaxLength="100" />
+          <Property Name="createOn" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'admin_saluja.dbo.report' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="report">
+          <Property Name="admissionId" Type="nvarchar" MaxLength="100" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="PRESENT_STATUS" Type="varchar" MaxLength="10" />
+          <Property Name="days" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'admin_saluja.dbo.ResultDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ResultDetail">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="AdmissionID" />
+            <PropertyRef Name="SubId" />
+            <PropertyRef Name="SessionId" />
+            <PropertyRef Name="ResultId" />
+            <PropertyRef Name="EvaluationMarks" />
+            <PropertyRef Name="IsEvaluteType" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdmissionID" Type="int" Nullable="false" />
+          <Property Name="SubId" Type="int" Nullable="false" />
+          <Property Name="SessionId" Type="int" Nullable="false" />
+          <Property Name="ResultId" Type="int" Nullable="false" />
+          <Property Name="EvaluationMarks" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsEvaluteType" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'admin_saluja.dbo.ResultMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ResultMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResultType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdOn" Type="datetime" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="RoleMenuPermission">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="NavigationMenuId" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sectionName" Type="nvarchar" MaxLength="20" />
+          <Property Name="createOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SessionMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="starthrs" Type="int" />
+          <Property Name="startmin" Type="int" />
+          <Property Name="endHrs" Type="int" />
+          <Property Name="endMin" Type="int" />
+          <Property Name="startTimeformate" Type="nvarchar" MaxLength="10" />
+          <Property Name="EndTimeformate" Type="nvarchar" MaxLength="10" />
+          <Property Name="sessionYear" Type="nvarchar" MaxLength="100" />
+          <Property Name="Years" Type="int" />
+          <Property Name="Months" Type="int" />
+          <Property Name="EndMonths" Type="int" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admissionId" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="100" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="gender" Type="nvarchar" MaxLength="100" />
+          <Property Name="fathername" Type="nvarchar" MaxLength="100" />
+          <Property Name="motherName" Type="nvarchar" MaxLength="100" />
+          <Property Name="classId" Type="int" />
+          <Property Name="sectionId" Type="int" />
+          <Property Name="rollNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar(max)" />
+          <Property Name="DOB" Type="date" />
+        </EntityType>
+        <EntityType Name="StudentAssignmentFiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AssId" Type="nvarchar" MaxLength="200" />
+          <Property Name="UniqueId" Type="uniqueidentifier" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="1000" />
+          <Property Name="DownloadCheck" Type="bit" />
+          <Property Name="AssignmentId" Type="int" />
+        </EntityType>
+        <EntityType Name="studentmaptoClass">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="AdmissionId" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClassId" Type="float" />
+          <Property Name="SectionId" Type="float" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubjectMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="isAcademic" Type="bit" />
+          <Property Name="Sub_Head" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TeacherDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="enrollmentCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="midName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="500" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="500" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="Dob" Type="nvarchar" MaxLength="20" />
+          <Property Name="Doj" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateOfexit" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeachermaptoClassSubject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="classId" Type="int" />
+          <Property Name="subjectid" Type="int" />
+          <Property Name="sectionid" Type="int" />
+          <Property Name="enrollmentCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="createdOn" Type="datetime" />
+          <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleId" Type="int" />
+          <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PasswordHash" Type="varbinary(max)" Nullable="false" />
+          <Property Name="PasswordSalt" Type="varbinary(max)" Nullable="false" />
+          <Property Name="createOn" Type="datetime" />
+          <Property Name="lastLogin" Type="datetime" />
+          <Property Name="numberOfFiledLogin" Type="int" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="isDelete" Type="bit" />
+          <Property Name="createBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="100" />
+          <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'admin_saluja.saluja.studentProfileDescription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="studentProfileDescription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="studentProfileId" Type="int" />
+          <Property Name="uniqueId" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'admin_saluja.saluja.studentProfileEvalution' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="studentProfileEvalution">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="E1" Type="nvarchar" MaxLength="50" />
+          <Property Name="E2" Type="nvarchar" MaxLength="50" />
+          <Property Name="E3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+          <Property Name="classId" Type="nvarchar" MaxLength="100" />
+          <Property Name="stuniqueId" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Function Name="Proc_Assingrole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UniqueId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="roleId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="proc_att" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="classId" Type="int" Mode="In" />
+          <Parameter Name="sectionid" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="month" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_CheckPermisssion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="nvarchar" Mode="In" />
+          <Parameter Name="actionName" Type="nvarchar" Mode="In" />
+          <Parameter Name="controllerName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_GetAttendaceReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="classId" Type="int" Mode="In" />
+          <Parameter Name="sectionid" Type="int" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="month" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_GetAttendaceReportByAdmssionid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="admissionId" Type="nvarchar" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="month" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_IsValidToken" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="token" Type="nvarchar" Mode="In" />
+          <Parameter Name="userId" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_PasswordRecover" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="nvarchar" Mode="In" />
+          <Parameter Name="callFrom" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_StudentDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="admissionId" Type="varchar" Mode="In" />
+          <Parameter Name="firstname" Type="nvarchar" Mode="In" />
+          <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="gender" Type="nvarchar" Mode="In" />
+          <Parameter Name="fathername" Type="nvarchar" Mode="In" />
+          <Parameter Name="motherName" Type="nvarchar" Mode="In" />
+          <Parameter Name="classId" Type="int" Mode="In" />
+          <Parameter Name="sectionId" Type="int" Mode="In" />
+          <Parameter Name="rollNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="phone" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_ViewResultClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="classId" Type="bigint" Mode="In" />
+          <Parameter Name="sectionId" Type="bigint" Mode="In" />
+          <Parameter Name="sessionId" Type="bigint" Mode="In" />
+          <Parameter Name="admissionId" Type="varchar" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Prop_UpdataPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="nvarchar" Mode="In" />
+          <Parameter Name="PasswordHas" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="passwordSalt" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="proc_ClassSubjectExcel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saluja">
+          <Parameter Name="classId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_GetAttendaceByAdmissionId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saluja">
+          <Parameter Name="admissionId" Type="nvarchar" Mode="In" />
+          <Parameter Name="year" Type="int" Mode="In" />
+          <Parameter Name="month" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_ViewAttendaceDatewise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saluja">
+          <Parameter Name="classId" Type="int" Mode="In" />
+          <Parameter Name="sectionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Proc_ViewStudentAssignment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="saluja">
+          <Parameter Name="action" Type="int" Mode="In" />
+          <Parameter Name="classid" Type="int" Mode="In" />
+          <Parameter Name="subjectid" Type="int" Mode="In" />
+          <Parameter Name="uploadOn" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="admin_salujaModelStoreContainer">
+          <EntitySet Name="Assigment" EntityType="Self.Assigment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AssignmentUploadStatus" EntityType="Self.AssignmentUploadStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttendanceMaster" EntityType="Self.AttendanceMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassMaster" EntityType="Self.ClassMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HolidayMaster" EntityType="Self.HolidayMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MapQualification" EntityType="Self.MapQualification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NavigationMenu" EntityType="Self.NavigationMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PassRecovery" EntityType="Self.PassRecovery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QualificationMaster" EntityType="Self.QualificationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleMenuPermission" EntityType="Self.RoleMenuPermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SessionMaster" EntityType="Self.SessionMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentAssignmentFiles" EntityType="Self.StudentAssignmentFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="studentmaptoClass" EntityType="Self.studentmaptoClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubjectMaster" EntityType="Self.SubjectMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeacherDetail" EntityType="Self.TeacherDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeachermaptoClassSubject" EntityType="Self.TeachermaptoClassSubject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassmaptoSubject" EntityType="Self.ClassmaptoSubject" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ClassmaptoSubject].[Id] AS [Id], 
+    [ClassmaptoSubject].[ClassId] AS [ClassId], 
+    [ClassmaptoSubject].[SubjectId] AS [SubjectId]
+    FROM [dbo].[ClassmaptoSubject] AS [ClassmaptoSubject]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ResultDetail" EntityType="Self.ResultDetail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ResultDetail].[id] AS [id], 
+    [ResultDetail].[AdmissionID] AS [AdmissionID], 
+    [ResultDetail].[SubId] AS [SubId], 
+    [ResultDetail].[SessionId] AS [SessionId], 
+    [ResultDetail].[ResultId] AS [ResultId], 
+    [ResultDetail].[EvaluationMarks] AS [EvaluationMarks], 
+    [ResultDetail].[IsEvaluteType] AS [IsEvaluteType]
+    FROM [dbo].[ResultDetail] AS [ResultDetail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ResultMaster" EntityType="Self.ResultMaster" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ResultMaster].[id] AS [id], 
+    [ResultMaster].[ResultType] AS [ResultType], 
+    [ResultMaster].[CreatedDate] AS [CreatedDate]
+    FROM [dbo].[ResultMaster] AS [ResultMaster]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="studentProfileDescription" EntityType="Self.studentProfileDescription" store:Type="Tables" store:Schema="saluja">
+            <DefiningQuery>SELECT 
+    [studentProfileDescription].[id] AS [id], 
+    [studentProfileDescription].[studentProfileId] AS [studentProfileId], 
+    [studentProfileDescription].[uniqueId] AS [uniqueId]
+    FROM [saluja].[studentProfileDescription] AS [studentProfileDescription]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="studentProfileEvalution" EntityType="Self.studentProfileEvalution" store:Type="Tables" store:Schema="saluja">
+            <DefiningQuery>SELECT 
+    [studentProfileEvalution].[id] AS [id], 
+    [studentProfileEvalution].[E1] AS [E1], 
+    [studentProfileEvalution].[E2] AS [E2], 
+    [studentProfileEvalution].[E3] AS [E3], 
+    [studentProfileEvalution].[Comments] AS [Comments], 
+    [studentProfileEvalution].[classId] AS [classId], 
+    [studentProfileEvalution].[stuniqueId] AS [stuniqueId]
+    FROM [saluja].[studentProfileEvalution] AS [studentProfileEvalution]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="admin_salujaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Assigment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="enrollmentCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="classid" Type="Int32" />
+          <Property Name="sectionId" Type="Int32" />
+          <Property Name="subjectId" Type="Int32" />
+          <Property Name="uploadedby" Type="Int32" />
+          <Property Name="deadlineDate" Type="DateTime" Precision="0" />
+          <Property Name="uploadeOn" Type="DateTime" Precision="3" />
+          <Property Name="filepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="UniqueId" Type="Guid" Nullable="false" />
+          <Property Name="AssID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uploadstatus" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="AssignmentUploadStatu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uploadstatus" Type="Boolean" />
+          <Property Name="subjectid" Type="Int32" />
+          <Property Name="classId" Type="Int32" />
+          <Property Name="enrollmentCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UniqueId" Type="Guid" Nullable="false" />
+          <Property Name="AssId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnrollmentCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="attendanceId" Type="Int32" />
+          <Property Name="punchdate" Type="DateTime" Precision="3" />
+          <Property Name="markedby" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AttendanceMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Attstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ClassMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="className" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="Sno" />
+          </Key>
+          <Property Name="Sno" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ErrorType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="HolidayMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HolidayDate" Type="DateTime" Precision="0" />
+          <Property Name="createon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MapQualification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="qualificationid" Type="Int32" />
+          <Property Name="UniqueId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmptyMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="NavigationMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ParentMenuId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ParentNavigationMenu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ControllerName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ActionName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsExternal" Type="Boolean" />
+          <Property Name="ExternalUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <Property Name="Permitted" Type="Boolean" />
+          <Property Name="Visible" Type="Boolean" />
+          <Property Name="iconName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PassRecovery">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="token" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="createdOn" Type="DateTime" Precision="3" />
+          <Property Name="expiryDate" Type="DateTime" Precision="3" />
+          <Property Name="isExpire" Type="Boolean" />
+          <Property Name="isReset" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="QualificationMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Qualification" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdOn" Type="DateTime" Precision="3" />
+          <Property Name="isDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="RoleMenuPermission">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="NavigationMenuId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sectionName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SessionMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="starthrs" Type="Int32" />
+          <Property Name="startmin" Type="Int32" />
+          <Property Name="endHrs" Type="Int32" />
+          <Property Name="endMin" Type="Int32" />
+          <Property Name="startTimeformate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="EndTimeformate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="sessionYear" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Years" Type="Int32" />
+          <Property Name="Months" Type="Int32" />
+          <Property Name="EndMonths" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admissionId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fathername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="motherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="classId" Type="Int32" />
+          <Property Name="sectionId" Type="Int32" />
+          <Property Name="rollNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="UniqueId" Type="Guid" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="StudentAssignmentFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UniqueId" Type="Guid" />
+          <Property Name="FilePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="DownloadCheck" Type="Boolean" />
+          <Property Name="AssignmentId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="studentmaptoClass">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="AdmissionId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClassId" Type="Double" />
+          <Property Name="SectionId" Type="Double" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="SubjectMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="isAcademic" Type="Boolean" />
+          <Property Name="Sub_Head" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TeacherDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="enrollmentCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="midName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Dob" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Doj" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfexit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UniqueId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeachermaptoClassSubject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="classId" Type="Int32" />
+          <Property Name="subjectid" Type="Int32" />
+          <Property Name="sectionid" Type="Int32" />
+          <Property Name="enrollmentCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createdOn" Type="DateTime" Precision="3" />
+          <Property Name="UniqueId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleId" Type="Int32" />
+          <Property Name="UniqueId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordHash" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="PasswordSalt" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="createOn" Type="DateTime" Precision="3" />
+          <Property Name="lastLogin" Type="DateTime" Precision="3" />
+          <Property Name="numberOfFiledLogin" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="isDelete" Type="Boolean" />
+          <Property Name="createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UniqueId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClassmaptoSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassId" Type="Int32" />
+          <Property Name="SubjectId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ResultDetail">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="AdmissionID" />
+            <PropertyRef Name="SubId" />
+            <PropertyRef Name="SessionId" />
+            <PropertyRef Name="ResultId" />
+            <PropertyRef Name="EvaluationMarks" />
+            <PropertyRef Name="IsEvaluteType" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdmissionID" Type="Int32" Nullable="false" />
+          <Property Name="SubId" Type="Int32" Nullable="false" />
+          <Property Name="SessionId" Type="Int32" Nullable="false" />
+          <Property Name="ResultId" Type="Int32" Nullable="false" />
+          <Property Name="EvaluationMarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsEvaluteType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResultMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResultType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="studentProfileDescription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="studentProfileId" Type="Int32" />
+          <Property Name="uniqueId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="studentProfileEvalution">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="E1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="classId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="stuniqueId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="SchoolErp" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Assigments" EntityType="Self.Assigment" />
+          <EntitySet Name="AssignmentUploadStatus" EntityType="Self.AssignmentUploadStatu" />
+          <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+          <EntitySet Name="AttendanceMasters" EntityType="Self.AttendanceMaster" />
+          <EntitySet Name="ClassMasters" EntityType="Self.ClassMaster" />
+          <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLog" />
+          <EntitySet Name="HolidayMasters" EntityType="Self.HolidayMaster" />
+          <EntitySet Name="MapQualifications" EntityType="Self.MapQualification" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="NavigationMenus" EntityType="Self.NavigationMenu" />
+          <EntitySet Name="PassRecoveries" EntityType="Self.PassRecovery" />
+          <EntitySet Name="QualificationMasters" EntityType="Self.QualificationMaster" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="RoleMenuPermissions" EntityType="Self.RoleMenuPermission" />
+          <EntitySet Name="Sections" EntityType="Self.Section" />
+          <EntitySet Name="SessionMasters" EntityType="Self.SessionMaster" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="StudentAssignmentFiles" EntityType="Self.StudentAssignmentFile" />
+          <EntitySet Name="studentmaptoClasses" EntityType="Self.studentmaptoClass" />
+          <EntitySet Name="SubjectMasters" EntityType="Self.SubjectMaster" />
+          <EntitySet Name="TeacherDetails" EntityType="Self.TeacherDetail" />
+          <EntitySet Name="TeachermaptoClassSubjects" EntityType="Self.TeachermaptoClassSubject" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="ClassmaptoSubjects" EntityType="Self.ClassmaptoSubject" />
+          <EntitySet Name="ResultDetails" EntityType="Self.ResultDetail" />
+          <EntitySet Name="ResultMasters" EntityType="Self.ResultMaster" />
+          <EntitySet Name="studentProfileDescriptions" EntityType="Self.studentProfileDescription" />
+          <EntitySet Name="studentProfileEvalutions" EntityType="Self.studentProfileEvalution" />
+          <FunctionImport Name="Proc_Assingrole" ReturnType="Collection(String)">
+            <Parameter Name="UniqueId" Mode="In" Type="Guid" />
+            <Parameter Name="roleId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="proc_att">
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+            <Parameter Name="sectionid" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="month" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_CheckPermisssion" ReturnType="Collection(admin_salujaModel.Proc_CheckPermisssion_Result)">
+            <Parameter Name="userId" Mode="In" Type="String" />
+            <Parameter Name="actionName" Mode="In" Type="String" />
+            <Parameter Name="controllerName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_GetAttendaceReport">
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+            <Parameter Name="sectionid" Mode="In" Type="Int32" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="month" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_GetAttendaceReportByAdmssionid">
+            <Parameter Name="admissionId" Mode="In" Type="String" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="month" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_IsValidToken" ReturnType="Collection(String)">
+            <Parameter Name="token" Mode="In" Type="String" />
+            <Parameter Name="userId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_PasswordRecover" ReturnType="Collection(String)">
+            <Parameter Name="userid" Mode="In" Type="String" />
+            <Parameter Name="callFrom" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_StudentDetail">
+            <Parameter Name="admissionId" Mode="In" Type="String" />
+            <Parameter Name="firstname" Mode="In" Type="String" />
+            <Parameter Name="lastName" Mode="In" Type="String" />
+            <Parameter Name="gender" Mode="In" Type="String" />
+            <Parameter Name="fathername" Mode="In" Type="String" />
+            <Parameter Name="motherName" Mode="In" Type="String" />
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+            <Parameter Name="sectionId" Mode="In" Type="Int32" />
+            <Parameter Name="rollNo" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="phone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_ViewResultClass" ReturnType="Collection(admin_salujaModel.Proc_ViewResultClass_Result)">
+            <Parameter Name="classId" Mode="In" Type="Int64" />
+            <Parameter Name="sectionId" Mode="In" Type="Int64" />
+            <Parameter Name="sessionId" Mode="In" Type="Int64" />
+            <Parameter Name="admissionId" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Prop_UpdataPassword">
+            <Parameter Name="userId" Mode="In" Type="String" />
+            <Parameter Name="PasswordHas" Mode="In" Type="Binary" />
+            <Parameter Name="passwordSalt" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="proc_ClassSubjectExcel" ReturnType="Collection(admin_salujaModel.proc_ClassSubjectExcel_Result)">
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_GetAttendaceByAdmissionId">
+            <Parameter Name="admissionId" Mode="In" Type="String" />
+            <Parameter Name="year" Mode="In" Type="Int32" />
+            <Parameter Name="month" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_ViewAttendaceDatewise">
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+            <Parameter Name="sectionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_ViewStudentAssignment">
+            <Parameter Name="action" Mode="In" Type="Int32" />
+            <Parameter Name="classid" Mode="In" Type="Int32" />
+            <Parameter Name="subjectid" Mode="In" Type="Int32" />
+            <Parameter Name="uploadOn" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Proc_CheckPermisssion_Result">
+          <Property Type="String" Name="userId" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="roleId" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ControllerName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ActionName" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="Proc_ViewResultClass_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="admissionId" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="201" />
+          <Property Type="String" Name="rollno" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="proc_ClassSubjectExcel_Result">
+          <Property Type="String" Name="AdmissionID" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Maths" Nullable="true" />
+          <Property Type="Int32" Name="Hindi" Nullable="true" />
+          <Property Type="Int32" Name="English" Nullable="true" />
+          <Property Type="Int32" Name="Science" Nullable="true" />
+          <Property Type="Int32" Name="SST" Nullable="true" />
+          <Property Type="Int32" Name="Sanskrit" Nullable="true" />
+          <Property Type="Int32" Name="Computer" Nullable="true" />
+          <Property Type="Int32" Name="GK" Nullable="true" />
+          <Property Type="Int32" Name="ArtCraft" Nullable="true" />
+          <Property Type="Int32" Name="French" Nullable="true" />
+          <Property Type="Int32" Name="Music" Nullable="true" />
+          <Property Type="Int32" Name="Dance" Nullable="true" />
+          <Property Type="Int32" Name="Sports" Nullable="true" />
+          <Property Type="Int32" Name="Swimming" Nullable="true" />
+          <Property Type="Int32" Name="Robotics" Nullable="true" />
+          <Property Type="Int32" Name="Literacy" Nullable="true" />
+          <Property Type="Int32" Name="Numeracy" Nullable="true" />
+          <Property Type="Int32" Name="Concept" Nullable="true" />
+          <Property Type="Int32" Name="CCA" Nullable="true" />
+          <Property Type="Int32" Name="EVS" Nullable="true" />
+          <Property Type="Int32" Name="punctable" Nullable="true" />
+          <Property Type="Int32" Name="Rules" Nullable="true" />
+          <Property Type="Int32" Name="Opinions" Nullable="true" />
+          <Property Type="Int32" Name="Materials" Nullable="true" />
+          <Property Type="Int32" Name="Curiosity" Nullable="true" />
+          <Property Type="Int32" Name="Completeness" Nullable="true" />
+          <Property Type="Int32" Name="Actions" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="admin_salujaModelStoreContainer" CdmEntityContainer="SchoolErp">
+          <EntitySetMapping Name="Assigments">
+            <EntityTypeMapping TypeName="admin_salujaModel.Assigment">
+              <MappingFragment StoreEntitySet="Assigment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="enrollmentCode" ColumnName="enrollmentCode" />
+                <ScalarProperty Name="classid" ColumnName="classid" />
+                <ScalarProperty Name="sectionId" ColumnName="sectionId" />
+                <ScalarProperty Name="subjectId" ColumnName="subjectId" />
+                <ScalarProperty Name="uploadedby" ColumnName="uploadedby" />
+                <ScalarProperty Name="deadlineDate" ColumnName="deadlineDate" />
+                <ScalarProperty Name="uploadeOn" ColumnName="uploadeOn" />
+                <ScalarProperty Name="filepath" ColumnName="filepath" />
+                <ScalarProperty Name="fileName" ColumnName="fileName" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+                <ScalarProperty Name="AssID" ColumnName="AssID" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="uploadstatus" ColumnName="uploadstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssignmentUploadStatus">
+            <EntityTypeMapping TypeName="admin_salujaModel.AssignmentUploadStatu">
+              <MappingFragment StoreEntitySet="AssignmentUploadStatus">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="uploadstatus" ColumnName="uploadstatus" />
+                <ScalarProperty Name="subjectid" ColumnName="subjectid" />
+                <ScalarProperty Name="classId" ColumnName="classId" />
+                <ScalarProperty Name="enrollmentCode" ColumnName="enrollmentCode" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+                <ScalarProperty Name="AssId" ColumnName="AssId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attendances">
+            <EntityTypeMapping TypeName="admin_salujaModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendance">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="EnrollmentCode" ColumnName="EnrollmentCode" />
+                <ScalarProperty Name="attendanceId" ColumnName="attendanceId" />
+                <ScalarProperty Name="punchdate" ColumnName="punchdate" />
+                <ScalarProperty Name="markedby" ColumnName="markedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceMasters">
+            <EntityTypeMapping TypeName="admin_salujaModel.AttendanceMaster">
+              <MappingFragment StoreEntitySet="AttendanceMaster">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Attstatus" ColumnName="Attstatus" />
+                <ScalarProperty Name="shortName" ColumnName="shortName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassMasters">
+            <EntityTypeMapping TypeName="admin_salujaModel.ClassMaster">
+              <MappingFragment StoreEntitySet="ClassMaster">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="className" ColumnName="className" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErrorLogs">
+            <EntityTypeMapping TypeName="admin_salujaModel.ErrorLog">
+              <MappingFragment StoreEntitySet="ErrorLogs">
+                <ScalarProperty Name="Sno" ColumnName="Sno" />
+                <ScalarProperty Name="ErrorType" ColumnName="ErrorType" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="ErrorDate" ColumnName="ErrorDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HolidayMasters">
+            <EntityTypeMapping TypeName="admin_salujaModel.HolidayMaster">
+              <MappingFragment StoreEntitySet="HolidayMaster">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="HolidayDate" ColumnName="HolidayDate" />
+                <ScalarProperty Name="createon" ColumnName="createon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MapQualifications">
+            <EntityTypeMapping TypeName="admin_salujaModel.MapQualification">
+              <MappingFragment StoreEntitySet="MapQualification">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="qualificationid" ColumnName="qualificationid" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="admin_salujaModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="Message1" ColumnName="Message" />
+                <ScalarProperty Name="EmptyMessage" ColumnName="EmptyMessage" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NavigationMenus">
+            <EntityTypeMapping TypeName="admin_salujaModel.NavigationMenu">
+              <MappingFragment StoreEntitySet="NavigationMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+                <ScalarProperty Name="ParentNavigationMenu" ColumnName="ParentNavigationMenu" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="IsExternal" ColumnName="IsExternal" />
+                <ScalarProperty Name="ExternalUrl" ColumnName="ExternalUrl" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Permitted" ColumnName="Permitted" />
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="iconName" ColumnName="iconName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassRecoveries">
+            <EntityTypeMapping TypeName="admin_salujaModel.PassRecovery">
+              <MappingFragment StoreEntitySet="PassRecovery">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+                <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+                <ScalarProperty Name="isExpire" ColumnName="isExpire" />
+                <ScalarProperty Name="isReset" ColumnName="isReset" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QualificationMasters">
+            <EntityTypeMapping TypeName="admin_salujaModel.QualificationMaster">
+              <MappingFragment StoreEntitySet="QualificationMaster">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="admin_salujaModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role1" ColumnName="role" />
+                <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleMenuPermissions">
+            <EntityTypeMapping TypeName="admin_salujaModel.RoleMenuPermission">
+              <MappingFragment StoreEntitySet="RoleMenuPermission">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="NavigationMenuId" ColumnName="NavigationMenuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sections">
+            <EntityTypeMapping TypeName="admin_salujaModel.Section">
+              <MappingFragment StoreEntitySet="Section">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sectionName" ColumnName="sectionName" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SessionMasters">
+            <EntityTypeMapping TypeName="admin_salujaModel.SessionMaster">
+              <MappingFragment StoreEntitySet="SessionMaster">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="starthrs" ColumnName="starthrs" />
+                <ScalarProperty Name="startmin" ColumnName="startmin" />
+                <ScalarProperty Name="endHrs" ColumnName="endHrs" />
+                <ScalarProperty Name="endMin" ColumnName="endMin" />
+                <ScalarProperty Name="startTimeformate" ColumnName="startTimeformate" />
+                <ScalarProperty Name="EndTimeformate" ColumnName="EndTimeformate" />
+                <ScalarProperty Name="sessionYear" ColumnName="sessionYear" />
+                <ScalarProperty Name="Years" ColumnName="Years" />
+                <ScalarProperty Name="Months" ColumnName="Months" />
+                <ScalarProperty Name="EndMonths" ColumnName="EndMonths" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="admin_salujaModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="fathername" ColumnName="fathername" />
+                <ScalarProperty Name="motherName" ColumnName="motherName" />
+                <ScalarProperty Name="classId" ColumnName="classId" />
+                <ScalarProperty Name="sectionId" ColumnName="sectionId" />
+                <ScalarProperty Name="rollNo" ColumnName="rollNo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentAssignmentFiles">
+            <EntityTypeMapping TypeName="admin_salujaModel.StudentAssignmentFile">
+              <MappingFragment StoreEntitySet="StudentAssignmentFiles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AssId" ColumnName="AssId" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="DownloadCheck" ColumnName="DownloadCheck" />
+                <ScalarProperty Name="AssignmentId" ColumnName="AssignmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="studentmaptoClasses">
+            <EntityTypeMapping TypeName="admin_salujaModel.studentmaptoClass">
+              <MappingFragment StoreEntitySet="studentmaptoClass">
+                <ScalarProperty Name="AdmissionId" ColumnName="AdmissionId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubjectMasters">
+            <EntityTypeMapping TypeName="admin_salujaModel.SubjectMaster">
+              <MappingFragment StoreEntitySet="SubjectMaster">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="isAcademic" ColumnName="isAcademic" />
+                <ScalarProperty Name="Sub_Head" ColumnName="Sub_Head" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeacherDetails">
+            <EntityTypeMapping TypeName="admin_salujaModel.TeacherDetail">
+              <MappingFragment StoreEntitySet="TeacherDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="enrollmentCode" ColumnName="enrollmentCode" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="midName" ColumnName="midName" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Doj" ColumnName="Doj" />
+                <ScalarProperty Name="DateOfexit" ColumnName="DateOfexit" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeachermaptoClassSubjects">
+            <EntityTypeMapping TypeName="admin_salujaModel.TeachermaptoClassSubject">
+              <MappingFragment StoreEntitySet="TeachermaptoClassSubject">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="classId" ColumnName="classId" />
+                <ScalarProperty Name="subjectid" ColumnName="subjectid" />
+                <ScalarProperty Name="sectionid" ColumnName="sectionid" />
+                <ScalarProperty Name="enrollmentCode" ColumnName="enrollmentCode" />
+                <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="admin_salujaModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="admin_salujaModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="createOn" ColumnName="createOn" />
+                <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
+                <ScalarProperty Name="numberOfFiledLogin" ColumnName="numberOfFiledLogin" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="createBy" ColumnName="createBy" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassmaptoSubjects">
+            <EntityTypeMapping TypeName="admin_salujaModel.ClassmaptoSubject">
+              <MappingFragment StoreEntitySet="ClassmaptoSubject">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultDetails">
+            <EntityTypeMapping TypeName="admin_salujaModel.ResultDetail">
+              <MappingFragment StoreEntitySet="ResultDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="AdmissionID" ColumnName="AdmissionID" />
+                <ScalarProperty Name="SubId" ColumnName="SubId" />
+                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+                <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+                <ScalarProperty Name="EvaluationMarks" ColumnName="EvaluationMarks" />
+                <ScalarProperty Name="IsEvaluteType" ColumnName="IsEvaluteType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResultMasters">
+            <EntityTypeMapping TypeName="admin_salujaModel.ResultMaster">
+              <MappingFragment StoreEntitySet="ResultMaster">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ResultType" ColumnName="ResultType" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="studentProfileDescriptions">
+            <EntityTypeMapping TypeName="admin_salujaModel.studentProfileDescription">
+              <MappingFragment StoreEntitySet="studentProfileDescription">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="studentProfileId" ColumnName="studentProfileId" />
+                <ScalarProperty Name="uniqueId" ColumnName="uniqueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="studentProfileEvalutions">
+            <EntityTypeMapping TypeName="admin_salujaModel.studentProfileEvalution">
+              <MappingFragment StoreEntitySet="studentProfileEvalution">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="E1" ColumnName="E1" />
+                <ScalarProperty Name="E2" ColumnName="E2" />
+                <ScalarProperty Name="E3" ColumnName="E3" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="classId" ColumnName="classId" />
+                <ScalarProperty Name="stuniqueId" ColumnName="stuniqueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Proc_Assingrole" FunctionName="admin_salujaModel.Store.Proc_Assingrole" />
+          <FunctionImportMapping FunctionImportName="proc_att" FunctionName="admin_salujaModel.Store.proc_att" />
+          <FunctionImportMapping FunctionImportName="Proc_CheckPermisssion" FunctionName="admin_salujaModel.Store.Proc_CheckPermisssion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="admin_salujaModel.Proc_CheckPermisssion_Result">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_GetAttendaceReport" FunctionName="admin_salujaModel.Store.Proc_GetAttendaceReport" />
+          <FunctionImportMapping FunctionImportName="Proc_GetAttendaceReportByAdmssionid" FunctionName="admin_salujaModel.Store.Proc_GetAttendaceReportByAdmssionid" />
+          <FunctionImportMapping FunctionImportName="Proc_IsValidToken" FunctionName="admin_salujaModel.Store.Proc_IsValidToken" />
+          <FunctionImportMapping FunctionImportName="Proc_PasswordRecover" FunctionName="admin_salujaModel.Store.Proc_PasswordRecover" />
+          <FunctionImportMapping FunctionImportName="Proc_StudentDetail" FunctionName="admin_salujaModel.Store.Proc_StudentDetail" />
+          <FunctionImportMapping FunctionImportName="Proc_ViewResultClass" FunctionName="admin_salujaModel.Store.Proc_ViewResultClass">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="admin_salujaModel.Proc_ViewResultClass_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="rollno" ColumnName="rollno" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Prop_UpdataPassword" FunctionName="admin_salujaModel.Store.Prop_UpdataPassword" />
+          <FunctionImportMapping FunctionImportName="proc_ClassSubjectExcel" FunctionName="admin_salujaModel.Store.proc_ClassSubjectExcel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="admin_salujaModel.proc_ClassSubjectExcel_Result">
+                <ScalarProperty Name="AdmissionID" ColumnName="AdmissionID" />
+                <ScalarProperty Name="Maths" ColumnName="Maths" />
+                <ScalarProperty Name="Hindi" ColumnName="Hindi" />
+                <ScalarProperty Name="English" ColumnName="English" />
+                <ScalarProperty Name="Science" ColumnName="Science" />
+                <ScalarProperty Name="SST" ColumnName="SST" />
+                <ScalarProperty Name="Sanskrit" ColumnName="Sanskrit" />
+                <ScalarProperty Name="Computer" ColumnName="Computer" />
+                <ScalarProperty Name="GK" ColumnName="GK" />
+                <ScalarProperty Name="ArtCraft" ColumnName="ArtCraft" />
+                <ScalarProperty Name="French" ColumnName="French" />
+                <ScalarProperty Name="Music" ColumnName="Music" />
+                <ScalarProperty Name="Dance" ColumnName="Dance" />
+                <ScalarProperty Name="Sports" ColumnName="Sports" />
+                <ScalarProperty Name="Swimming" ColumnName="Swimming" />
+                <ScalarProperty Name="Robotics" ColumnName="Robotics" />
+                <ScalarProperty Name="Literacy" ColumnName="Literacy" />
+                <ScalarProperty Name="Numeracy" ColumnName="Numeracy" />
+                <ScalarProperty Name="Concept" ColumnName="Concept" />
+                <ScalarProperty Name="CCA" ColumnName="CCA" />
+                <ScalarProperty Name="EVS" ColumnName="EVS" />
+                <ScalarProperty Name="punctable" ColumnName="punctable" />
+                <ScalarProperty Name="Rules" ColumnName="Rules" />
+                <ScalarProperty Name="Opinions" ColumnName="Opinions" />
+                <ScalarProperty Name="Materials" ColumnName="Materials" />
+                <ScalarProperty Name="Curiosity" ColumnName="Curiosity" />
+                <ScalarProperty Name="Completeness" ColumnName="Completeness" />
+                <ScalarProperty Name="Actions" ColumnName="Actions" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Proc_GetAttendaceByAdmissionId" FunctionName="admin_salujaModel.Store.Proc_GetAttendaceByAdmissionId" />
+          <FunctionImportMapping FunctionImportName="Proc_ViewAttendaceDatewise" FunctionName="admin_salujaModel.Store.Proc_ViewAttendaceDatewise" />
+          <FunctionImportMapping FunctionImportName="Proc_ViewStudentAssignment" FunctionName="admin_salujaModel.Store.Proc_ViewStudentAssignment" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

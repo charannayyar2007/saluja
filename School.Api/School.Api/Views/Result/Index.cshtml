@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Upload Result";
+    Layout = "~/Views/Shared/_ResultLayout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+
+
+                @using (Html.BeginForm("Index", "Result", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @*<form class="new-added-form">*@
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                        <label>Select Session *</label>
+                        <select class="select2 form-control" id="sltsession" name="sltsession">
+                            <option value="0">Select Session</option>
+                            @foreach (var cls in Model.SessionMasters)
+                            {
+                                <option value="@cls.id">@cls.sessionYear</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                        <label>Result Type *</label>
+                        <select class="select2 form-control" id="sltresult" name="sltresult">
+                            <option value="0">Select</option>
+                            <option value="1">Term</option>
+                            <option value="2">Cyclic</option>
+                            <option value="3">Periodic</option>
+                            <option value="4">Annual</option>
+                        </select>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-12 form-group">
+                        <label>Evaluation Type *</label>
+                        <select class="select2 form-control" id="sltevaluate" name="sltevaluate">
+                            <option value="0">Select</option>
+                            <option value="1">Evaluation 1</option>
+                            <option value="2">Evaluation 2</option>
+                            <option value="3">Evaluation 3</option>
+                        </select>
+                    </div>
+                    <div class="col-12 form-group mg-t-8">
+                        <label>Select File:</label>
+                        <input class="fileinput" type="file" name="postedFile" />
+                        <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Upload</button>
+                        <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                    </div>
+                </div>
+                   
+                }
+
+                </div>
+        </div>
+    </div>
+</div>

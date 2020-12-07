@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="admin_salujaModelStoreContainer" CdmEntityContainer="SchoolErp">
+    <EntitySetMapping Name="Assigments">
+      <EntityTypeMapping TypeName="admin_salujaModel.Assigment">
+        <MappingFragment StoreEntitySet="Assigment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="enrollmentCode" ColumnName="enrollmentCode" />
+          <ScalarProperty Name="classid" ColumnName="classid" />
+          <ScalarProperty Name="sectionId" ColumnName="sectionId" />
+          <ScalarProperty Name="subjectId" ColumnName="subjectId" />
+          <ScalarProperty Name="uploadedby" ColumnName="uploadedby" />
+          <ScalarProperty Name="deadlineDate" ColumnName="deadlineDate" />
+          <ScalarProperty Name="uploadeOn" ColumnName="uploadeOn" />
+          <ScalarProperty Name="filepath" ColumnName="filepath" />
+          <ScalarProperty Name="fileName" ColumnName="fileName" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+          <ScalarProperty Name="AssID" ColumnName="AssID" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="uploadstatus" ColumnName="uploadstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssignmentUploadStatus">
+      <EntityTypeMapping TypeName="admin_salujaModel.AssignmentUploadStatu">
+        <MappingFragment StoreEntitySet="AssignmentUploadStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uploadstatus" ColumnName="uploadstatus" />
+          <ScalarProperty Name="subjectid" ColumnName="subjectid" />
+          <ScalarProperty Name="classId" ColumnName="classId" />
+          <ScalarProperty Name="enrollmentCode" ColumnName="enrollmentCode" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+          <ScalarProperty Name="AssId" ColumnName="AssId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="admin_salujaModel.Attendance">
+        <MappingFragment StoreEntitySet="Attendance">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="EnrollmentCode" ColumnName="EnrollmentCode" />
+          <ScalarProperty Name="attendanceId" ColumnName="attendanceId" />
+          <ScalarProperty Name="punchdate" ColumnName="punchdate" />
+          <ScalarProperty Name="markedby" ColumnName="markedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceMasters">
+      <EntityTypeMapping TypeName="admin_salujaModel.AttendanceMaster">
+        <MappingFragment StoreEntitySet="AttendanceMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Attstatus" ColumnName="Attstatus" />
+          <ScalarProperty Name="shortName" ColumnName="shortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassMasters">
+      <EntityTypeMapping TypeName="admin_salujaModel.ClassMaster">
+        <MappingFragment StoreEntitySet="ClassMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="className" ColumnName="className" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="admin_salujaModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLogs">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="ErrorType" ColumnName="ErrorType" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+          <ScalarProperty Name="ErrorDate" ColumnName="ErrorDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HolidayMasters">
+      <EntityTypeMapping TypeName="admin_salujaModel.HolidayMaster">
+        <MappingFragment StoreEntitySet="HolidayMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="HolidayDate" ColumnName="HolidayDate" />
+          <ScalarProperty Name="createon" ColumnName="createon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MapQualifications">
+      <EntityTypeMapping TypeName="admin_salujaModel.MapQualification">
+        <MappingFragment StoreEntitySet="MapQualification">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="qualificationid" ColumnName="qualificationid" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="admin_salujaModel.Message">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="Message1" ColumnName="Message" />
+          <ScalarProperty Name="EmptyMessage" ColumnName="EmptyMessage" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NavigationMenus">
+      <EntityTypeMapping TypeName="admin_salujaModel.NavigationMenu">
+        <MappingFragment StoreEntitySet="NavigationMenu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+          <ScalarProperty Name="ParentNavigationMenu" ColumnName="ParentNavigationMenu" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="IsExternal" ColumnName="IsExternal" />
+          <ScalarProperty Name="ExternalUrl" ColumnName="ExternalUrl" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Permitted" ColumnName="Permitted" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+          <ScalarProperty Name="iconName" ColumnName="iconName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassRecoveries">
+      <EntityTypeMapping TypeName="admin_salujaModel.PassRecovery">
+        <MappingFragment StoreEntitySet="PassRecovery">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+          <ScalarProperty Name="isExpire" ColumnName="isExpire" />
+          <ScalarProperty Name="isReset" ColumnName="isReset" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QualificationMasters">
+      <EntityTypeMapping TypeName="admin_salujaModel.QualificationMaster">
+        <MappingFragment StoreEntitySet="QualificationMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="admin_salujaModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="role1" ColumnName="role" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleMenuPermissions">
+      <EntityTypeMapping TypeName="admin_salujaModel.RoleMenuPermission">
+        <MappingFragment StoreEntitySet="RoleMenuPermission">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="NavigationMenuId" ColumnName="NavigationMenuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="admin_salujaModel.Section">
+        <MappingFragment StoreEntitySet="Section">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sectionName" ColumnName="sectionName" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SessionMasters">
+      <EntityTypeMapping TypeName="admin_salujaModel.SessionMaster">
+        <MappingFragment StoreEntitySet="SessionMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="starthrs" ColumnName="starthrs" />
+          <ScalarProperty Name="startmin" ColumnName="startmin" />
+          <ScalarProperty Name="endHrs" ColumnName="endHrs" />
+          <ScalarProperty Name="endMin" ColumnName="endMin" />
+          <ScalarProperty Name="startTimeformate" ColumnName="startTimeformate" />
+          <ScalarProperty Name="EndTimeformate" ColumnName="EndTimeformate" />
+          <ScalarProperty Name="sessionYear" ColumnName="sessionYear" />
+          <ScalarProperty Name="Years" ColumnName="Years" />
+          <ScalarProperty Name="Months" ColumnName="Months" />
+          <ScalarProperty Name="EndMonths" ColumnName="EndMonths" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="admin_salujaModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="fathername" ColumnName="fathername" />
+          <ScalarProperty Name="motherName" ColumnName="motherName" />
+          <ScalarProperty Name="classId" ColumnName="classId" />
+          <ScalarProperty Name="sectionId" ColumnName="sectionId" />
+          <ScalarProperty Name="rollNo" ColumnName="rollNo" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentAssignmentFiles">
+      <EntityTypeMapping TypeName="admin_salujaModel.StudentAssignmentFile">
+        <MappingFragment StoreEntitySet="StudentAssignmentFiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssId" ColumnName="AssId" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="DownloadCheck" ColumnName="DownloadCheck" />
+          <ScalarProperty Name="AssignmentId" ColumnName="AssignmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="studentmaptoClasses">
+      <EntityTypeMapping TypeName="admin_salujaModel.studentmaptoClass">
+        <MappingFragment StoreEntitySet="studentmaptoClass">
+          <ScalarProperty Name="AdmissionId" ColumnName="AdmissionId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubjectMasters">
+      <EntityTypeMapping TypeName="admin_salujaModel.SubjectMaster">
+        <MappingFragment StoreEntitySet="SubjectMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="createdon" ColumnName="createdon" />
+          <ScalarProperty Name="isAcademic" ColumnName="isAcademic" />
+          <ScalarProperty Name="Sub_Head" ColumnName="Sub_Head" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherDetails">
+      <EntityTypeMapping TypeName="admin_salujaModel.TeacherDetail">
+        <MappingFragment StoreEntitySet="TeacherDetail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="enrollmentCode" ColumnName="enrollmentCode" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="midName" ColumnName="midName" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Doj" ColumnName="Doj" />
+          <ScalarProperty Name="DateOfexit" ColumnName="DateOfexit" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeachermaptoClassSubjects">
+      <EntityTypeMapping TypeName="admin_salujaModel.TeachermaptoClassSubject">
+        <MappingFragment StoreEntitySet="TeachermaptoClassSubject">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="classId" ColumnName="classId" />
+          <ScalarProperty Name="subjectid" ColumnName="subjectid" />
+          <ScalarProperty Name="sectionid" ColumnName="sectionid" />
+          <ScalarProperty Name="enrollmentCode" ColumnName="enrollmentCode" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="admin_salujaModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="admin_salujaModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="createOn" ColumnName="createOn" />
+          <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
+          <ScalarProperty Name="numberOfFiledLogin" ColumnName="numberOfFiledLogin" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="createBy" ColumnName="createBy" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassmaptoSubjects">
+      <EntityTypeMapping TypeName="admin_salujaModel.ClassmaptoSubject">
+        <MappingFragment StoreEntitySet="ClassmaptoSubject">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResultDetails">
+      <EntityTypeMapping TypeName="admin_salujaModel.ResultDetail">
+        <MappingFragment StoreEntitySet="ResultDetail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AdmissionID" ColumnName="AdmissionID" />
+          <ScalarProperty Name="SubId" ColumnName="SubId" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+          <ScalarProperty Name="EvaluationMarks" ColumnName="EvaluationMarks" />
+          <ScalarProperty Name="IsEvaluteType" ColumnName="IsEvaluteType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResultMasters">
+      <EntityTypeMapping TypeName="admin_salujaModel.ResultMaster">
+        <MappingFragment StoreEntitySet="ResultMaster">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ResultType" ColumnName="ResultType" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="studentProfileDescriptions">
+      <EntityTypeMapping TypeName="admin_salujaModel.studentProfileDescription">
+        <MappingFragment StoreEntitySet="studentProfileDescription">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="studentProfileId" ColumnName="studentProfileId" />
+          <ScalarProperty Name="uniqueId" ColumnName="uniqueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="studentProfileEvalutions">
+      <EntityTypeMapping TypeName="admin_salujaModel.studentProfileEvalution">
+        <MappingFragment StoreEntitySet="studentProfileEvalution">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="E1" ColumnName="E1" />
+          <ScalarProperty Name="E2" ColumnName="E2" />
+          <ScalarProperty Name="E3" ColumnName="E3" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="classId" ColumnName="classId" />
+          <ScalarProperty Name="stuniqueId" ColumnName="stuniqueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_Assingrole" FunctionName="admin_salujaModel.Store.Proc_Assingrole" />
+    <FunctionImportMapping FunctionImportName="proc_att" FunctionName="admin_salujaModel.Store.proc_att" />
+    <FunctionImportMapping FunctionImportName="Proc_CheckPermisssion" FunctionName="admin_salujaModel.Store.Proc_CheckPermisssion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="admin_salujaModel.Proc_CheckPermisssion_Result">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_GetAttendaceReport" FunctionName="admin_salujaModel.Store.Proc_GetAttendaceReport" />
+    <FunctionImportMapping FunctionImportName="Proc_GetAttendaceReportByAdmssionid" FunctionName="admin_salujaModel.Store.Proc_GetAttendaceReportByAdmssionid" />
+    <FunctionImportMapping FunctionImportName="Proc_IsValidToken" FunctionName="admin_salujaModel.Store.Proc_IsValidToken" />
+    <FunctionImportMapping FunctionImportName="Proc_PasswordRecover" FunctionName="admin_salujaModel.Store.Proc_PasswordRecover" />
+    <FunctionImportMapping FunctionImportName="Proc_StudentDetail" FunctionName="admin_salujaModel.Store.Proc_StudentDetail" />
+    <FunctionImportMapping FunctionImportName="Proc_ViewResultClass" FunctionName="admin_salujaModel.Store.Proc_ViewResultClass">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="admin_salujaModel.Proc_ViewResultClass_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="rollno" ColumnName="rollno" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Prop_UpdataPassword" FunctionName="admin_salujaModel.Store.Prop_UpdataPassword" />
+    <FunctionImportMapping FunctionImportName="proc_ClassSubjectExcel" FunctionName="admin_salujaModel.Store.proc_ClassSubjectExcel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="admin_salujaModel.proc_ClassSubjectExcel_Result">
+          <ScalarProperty Name="AdmissionID" ColumnName="AdmissionID" />
+          <ScalarProperty Name="Maths" ColumnName="Maths" />
+          <ScalarProperty Name="Hindi" ColumnName="Hindi" />
+          <ScalarProperty Name="English" ColumnName="English" />
+          <ScalarProperty Name="Science" ColumnName="Science" />
+          <ScalarProperty Name="SST" ColumnName="SST" />
+          <ScalarProperty Name="Sanskrit" ColumnName="Sanskrit" />
+          <ScalarProperty Name="Computer" ColumnName="Computer" />
+          <ScalarProperty Name="GK" ColumnName="GK" />
+          <ScalarProperty Name="ArtCraft" ColumnName="ArtCraft" />
+          <ScalarProperty Name="French" ColumnName="French" />
+          <ScalarProperty Name="Music" ColumnName="Music" />
+          <ScalarProperty Name="Dance" ColumnName="Dance" />
+          <ScalarProperty Name="Sports" ColumnName="Sports" />
+          <ScalarProperty Name="Swimming" ColumnName="Swimming" />
+          <ScalarProperty Name="Robotics" ColumnName="Robotics" />
+          <ScalarProperty Name="Literacy" ColumnName="Literacy" />
+          <ScalarProperty Name="Numeracy" ColumnName="Numeracy" />
+          <ScalarProperty Name="Concept" ColumnName="Concept" />
+          <ScalarProperty Name="CCA" ColumnName="CCA" />
+          <ScalarProperty Name="EVS" ColumnName="EVS" />
+          <ScalarProperty Name="punctable" ColumnName="punctable" />
+          <ScalarProperty Name="Rules" ColumnName="Rules" />
+          <ScalarProperty Name="Opinions" ColumnName="Opinions" />
+          <ScalarProperty Name="Materials" ColumnName="Materials" />
+          <ScalarProperty Name="Curiosity" ColumnName="Curiosity" />
+          <ScalarProperty Name="Completeness" ColumnName="Completeness" />
+          <ScalarProperty Name="Actions" ColumnName="Actions" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_GetAttendaceByAdmissionId" FunctionName="admin_salujaModel.Store.Proc_GetAttendaceByAdmissionId" />
+    <FunctionImportMapping FunctionImportName="Proc_ViewAttendaceDatewise" FunctionName="admin_salujaModel.Store.Proc_ViewAttendaceDatewise" />
+    <FunctionImportMapping FunctionImportName="Proc_ViewStudentAssignment" FunctionName="admin_salujaModel.Store.Proc_ViewStudentAssignment" />
+  </EntityContainerMapping>
+</Mapping>

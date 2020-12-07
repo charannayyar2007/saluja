@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2>Part5 - Upload files to the web api using jquery</h2>
+    <div>
+        <div class="form-group">
+            <div id="updatePanelFile" class="alert" role="alert" style="display:none;">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="file" id="file1" />
+        </div>
+        <input id="btnPostFile" class="btn btn-default" type="button" value="Upload" />
+    </div>
+
+    <script src="Scripts/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnPostFile').click(function () {
+                if ($('#file1').val() == '') {
+                    alert('Please select file');
+                    return;
+                }
+
+                var formData = new FormData();
+                var file = $('#file1')[0];
+                formData.append('file', file.files[0]);
+              
+
+                $.ajax({
+                    url: '/UploadAssingment',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    // headers: {
+                    //    'Authorization': 'Bearer '
+                    //        + sessionStorage.getItem("accessToken")
+                    //},
+                    success: function (d) {
+                        $('#updatePanelFile').addClass('alert-success').html('<strong>Success!</strong><a href="' + d + '">Open File</a>').show();
+                        $('#file1').val(null);
+                    },
+                    error: function () {
+                        $('#updatePanelFile').addClass('alert-error').html('<strong>Failed!</strong> Please try again.').show();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

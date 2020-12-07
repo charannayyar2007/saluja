@@ -1,0 +1,190 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html class="no-js" lang="">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Admin | Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="/SalujaScripts/img/favicon.png">
+
+    <!-- Normalize CSS -->
+   
+  
+    <link rel="stylesheet" href="/Content/css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/Content/css/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="/Content/fonts/flaticon.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="/Content/css/animate.min.css">
+    <!-- Date Picker CSS -->
+    <link rel="stylesheet" href="/Content/css/datepicker.min.css">
+    <!-- Select 2 CSS -->
+    <link rel="stylesheet" href="/Content/css/select2.min.css">
+    <!-- Data Table CSS -->
+    <link rel="stylesheet" href="/Content/css/jquery.dataTables.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Content/style.css">
+    <!-- Modernize js -->
+    <script src="/Scripts/modernizr-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <!-- Preloader Start Here -->
+    <div id="preloader"></div>
+    <!-- Preloader End Here -->
+    <!-- Login Page Start Here -->
+    <div class="login-page-wrap"  id="loginpage" >
+        <div class="login-page-content">
+            <div class="login-box">
+                <div class="item-logo">
+                    <img src="~/Content/img/saluja.png" alt="logo">
+                </div>
+                <div class="">
+                    <h3 class="text-center">User's Login</h3>
+                </div>
+                <div class="login-form">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" placeholder="Email" id="txtUsername" class="form-control" name="UserId">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="txtPassword" placeholder="Enter password" class="form-control" name="Password">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div class="form-group d-flex align-items-center justify-content-between">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember-me">
+                            <label for="remember-me" class="form-check-label">Remember Me</label>
+                        </div>
+                        <a id="forgotpassword" class="forgot-btn">Forgot Password?</a>
+                    </div>
+                    <div class="form-group">
+                        @*<a href="index.html" class="login-btn">Login</a>*@
+                        <input type="submit" id="btnLogin" value="Login" class="login-btn" />
+
+                    </div>
+                    <label style="color: red; font-weight: bold" id="errormsg"></label>
+                </div>
+
+                <div id="error" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p style="color:red;">UserName or Password not valid</p>
+                    </div>
+
+                </div>
+                <!-- <div class="login-social">
+                    <p>or sign in with</p>
+                    <ul>
+                        <li><a href="#" class="bg-fb"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="bg-twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" class="bg-gplus"><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href="#" class="bg-git"><i class="fab fa-github"></i></a></li>
+                    </ul>
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+    <div class="login-page-wrap" id="forgotpaswordpage" style="display: none;">
+        <div class="login-page-content">
+            <div class="login-box">
+                <div class="item-logo">
+                    <img src="/Content/img/saluja.png" alt="logo">
+                </div>
+                <div class="">
+                    <h3 class="text-center">Forgot Password</h3>
+                </div>
+                <form action="" class="login-form">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="txtUsernameotp" placeholder="User Id" class="form-control">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <a id="sendOtp" class="login-btn">Send OTP</a>
+                    </div>
+                    <div class="form-group">
+                        <label>OTP</label>
+                        <input type="text" id="txtOPT" placeholder="Enter OTP" class="form-control">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" id="txtPasswordFogot" placeholder="Enter New Password" class="form-control">
+                        <i class="fa fa-lock"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <a id="RestPassword" class="login-btn">Reset Password</a>
+                    </div>
+                    <p class="text-center">Back to <a href="">Login</a></p>
+                </form>
+
+                <div id="error" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">×</span>
+                        <p style="color:red;">UserName or Password not valid</p>
+                    </div>
+
+                </div>
+                <!-- <div class="login-social">
+                <p>or sign in with</p>
+                <ul>
+                    <li><a href="#" class="bg-fb"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" class="bg-twitter"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" class="bg-gplus"><i class="fab fa-google-plus-g"></i></a></li>
+                    <li><a href="#" class="bg-git"><i class="fab fa-github"></i></a></li>
+                </ul>
+            </div> -->
+            </div>
+
+        </div>
+    </div>
+    <!-- Login Page End Here -->
+    <script src="/Scripts/jquery-3.3.1.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/Scripts/plugins.js"></script>
+    <!-- Popper js -->
+    <script src="/Scripts/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <!-- Select 2 Js -->
+    <script src="/Scripts/select2.min.js"></script>
+    <!-- Scroll Up Js -->
+    <script src="/Scripts/jquery.scrollUp.min.js"></script>
+    <!-- Custom Js -->
+    <script src="/Scripts/main.js"></script>
+
+
+    <script src="/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/Product/Common.js"></script>
+    <script src="~/Scripts/Product/login.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>
+

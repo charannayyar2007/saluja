@@ -1,0 +1,67 @@
+﻿<script id="CreateTeacherTemplate" type="text/x-jquery-tmpl">
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="new-added-form">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-12 form-group">
+                            <div class="form-group">
+                                <label for="email">Name *</label>
+                                <input type="text" class="form-control" id="" placeholder="" name="name">
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-12 form-group">
+                            <div class="form-group">
+                                <label for="email">Mobile *</label>
+                                <input type="text" class="form-control" id="" placeholder="" name="mobile">
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-12 form-group">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="" name="email">
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-12 form-group">
+                            <label>D.O.B *</label>
+                            <input type="date" placeholder="" class="form-control">
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-12 form-group">
+                            <label>Class</label>
+                            <select class="selectpicker" id="classSelect" multiple data-live-search="true">
+                                {{each(i) ClassesMasters}}
+
+                                <option value="${Id}">${ClassName}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="col-xl-4 col-lg-4 col-12 form-group">
+                            <label>Section</label>
+                            <select class="selectpicker" id="SectionSelect" multiple data-live-search="true">
+                                {{each(i) SectionsMasters}}
+                                <option value="${Id}">${SectionName}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="col-xl-4 col-lg-4 col-12 form-group">
+                            <label>Select Subject </label>
+                            <select class="selectpicker" id="SubjectSelect" multiple data-live-search="true">
+                                {{each(i) SubjectsMasters}}
+                                <option value="${Id}">${Subject}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-12 form-group mg-t-8">
+                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                            <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                            <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow float-right">Import List</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </script>

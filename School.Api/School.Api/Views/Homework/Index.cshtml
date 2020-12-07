@@ -1,0 +1,395 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html class="no-js" lang="">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Homework | Admin</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/CssScript/img/favicon.png">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="/CssScript/css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/CssScript/css/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/CssScript/css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="/CssScript/css/all.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="/CssScript/fonts/flaticon.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="/CssScript/css/animate.min.css">
+    <!-- Date Picker CSS -->
+    <link rel="stylesheet" href="/CssScript/css/datepicker.min.css">
+    <!-- Select 2 CSS -->
+    <link rel="stylesheet" href="/CssScript/css/select2.min.css">
+    <!-- Data Table CSS -->
+    <link rel="stylesheet" href="/CssScript/css/jquery.dataTables.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/CssScript/style.css">
+    <!-- Modernize js -->
+    <script src="/CssScript/js/modernizr-3.6.0.min.js"></script>
+    <style>
+        table td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start Here -->
+    <div id="preloader"></div>
+    <!-- Preloader End Here -->
+    <div id="wrapper" class="wrapper bg-ash">
+        <!-- Header Menu Area Start Here -->
+        <div class="navbar navbar-expand-md header-menu-one bg-light">
+            <div class="nav-bar-header-one">
+                <div class="header-logo"> <a href="index.html"> <img src="img/logo-new.png" alt="logo"> </a> </div>
+                <div class="toggle-button sidebar-toggle">
+                    <button type="button" class="item-link"> <span class="btn-icon-wrap"> <span></span> <span></span> <span></span> </span> </button>
+                </div>
+            </div>
+            <div class="d-md-none mobile-nav-bar">
+                <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false"> <i class="far fa-arrow-alt-circle-down"></i> </button>
+                <button type="button" class="navbar-toggler sidebar-toggle-mobile"> <i class="fas fa-bars"></i> </button>
+            </div>
+            <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
+                <ul class="navbar-nav">
+                    <li class="navbar-item header-search-bar">
+                        <div class="input-group stylish-input-group">
+                            <span class="input-group-addon">
+                                <button type="submit"> <span class="flaticon-search" aria-hidden="true"></span> </button>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Find Something . . .">
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="navbar-item dropdown header-admin">
+                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                           aria-expanded="false">
+                            <div class="admin-title">
+                                <h5 class="item-title">Priyanka Sharma</h5>
+                                <span>Admin</span>
+                            </div>
+                            <div class="admin-img"> <img src="img/figure/admin.jpg" alt="Admin"> </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="item-header">
+                                <h6 class="item-title">Priyanka Sharma</h6>
+                            </div>
+                            <div class="item-content">
+                                <ul class="settings-list">
+                                    <li><a href="#"><i class="flaticon-user"></i>My Profile</a></li>
+                                    <li><a href="login.html"><i class="flaticon-turn-off"></i>Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Header Menu Area End Here -->
+        <!-- Page Area Start Here -->
+        <div class="dashboard-page-one">
+            <!-- Sidebar Area Start Here -->
+            <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+                <div class="mobile-sidebar-header d-md-none">
+                    <div class="header-logo"> <a href="index.html"><img src="/CssScript/img/logo1.png" alt="logo"></a> </div>
+                </div>
+                <div class="sidebar-menu-content">
+                    <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                <i class="flaticon-dashboard"></i><span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="add-student.html" class="nav-link">
+                                <i class="flaticon-classmates"></i><span>Students</span>
+                            </a>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-calendar"></i><span>Attendance</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item"> <a href="mark-attendance.html" class="nav-link"><i class="fas fa-angle-right"></i>Mark Attendance</a> </li>
+                                <li class="nav-item"> <a href="attendance.html" class="nav-link"><i class="fas fa-angle-right"></i>View Attendance</a> </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link menu-active"><i class="flaticon-books"></i><span>Homework</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item"> <a href="homework.html" class="nav-link menu-active"><i class="fas fa-angle-right"></i>Upload Homework</a> </li>
+                                <li class="nav-item"> <a href="view-homework.html" class="nav-link"><i class="fas fa-angle-right"></i>View Homework</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Sidebar Area End Here -->
+            <div class="dashboard-content-one">
+                <!-- Breadcubs Area Start Here -->
+                <div class="breadcrumbs-area">
+                    <h3>Student Homework</h3>
+                    <ul>
+                        <li> <a href="index.html">Home</a> </li>
+                        <li>Homework</li>
+                    </ul>
+                </div>
+                <!-- Breadcubs Area End Here -->
+                <div class="row">
+                    <!-- Student Attendence Search Area Start Here -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="new-added-form">
+                                    <div class="row">
+                                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                            <label>Select Class *</label>
+                                            <select class="select2" id="txtClass">
+                                                <option value="">Select Class</option>
+                                                <option value="1">Nursery</option>
+                                                <option value="2">Play</option>
+                                                <option value="3">One</option>
+                                                <option value="4">Two</option>
+                                                <option value="5">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                            <label>Select Section *</label>
+                                            <select class="select2" id="txtSection">
+                                                <option value="0">Select Section</option>
+                                                <option value="1">A</option>
+                                                <option value="2">B</option>
+                                                <option value="3">C</option>
+                                                <option value="4">D</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                            <label>Subject *</label>
+                                            <select class="select2" id="txtSubject">
+                                                <option value="0">Select Subject</option>
+                                                <option value="1">Maths</option>
+                                                <option value="2">Science</option>
+                                                <option value="3">Social</option>
+                                                <option value="4">Chemistry</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                            <label>Date *</label>
+                                            <input type="date" placeholder="" class="form-control" id="txtDate">
+                                        </div>
+                                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                            <label>Last Submission Date *</label>
+                                            <input type="date" placeholder="" class="form-control" id="txtLastDate">
+                                        </div>
+                                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                                            <label class="text-dark-medium">Upload Homework</label>
+                                            <input type="file" class="form-control-file" id="txtFile">
+                                        </div>
+                                        <div class="col-12 form-group mg-t-8">
+                                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark" id="btnSave">Save</button>
+                                            <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Student Attendence Search Area End Here -->
+                    <!-- Student Attendence Area Start Here -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="heading-layout1">
+                                    <div class="item-title">
+                                        <h3>All Homework List</h3>
+                                    </div>
+                                </div>
+                                <form class="mg-b-20">
+                                    <div class="row gutters-8">
+                                        <div class="col-lg-4 col-12 form-group">
+                                            <input type="text" placeholder="Class" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 col-12 form-group">
+                                            <input type="text" placeholder="Subject" class="form-control">
+                                        </div>
+                                        <div class="col-lg-3 col-12 form-group">
+                                            <input type="date" placeholder="Date" class="form-control">
+                                        </div>
+                                        <div class="col-lg-2 col-12 form-group">
+                                            <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="table-responsive">
+                                    <table class="table display data-table text-nowrap lefttd">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input checkAll">
+                                                        <label class="form-check-label">Sr.</label>
+                                                    </div>
+                                                </th>
+                                                <th>Class</th>
+                                                <th>Section</th>
+                                                <th>Subject</th>
+                                                <th>Upload Date</th>
+                                                <th>Last Submission Date</th>
+                                                <th>Homework File</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="styletd">
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input">
+                                                        <label class="form-check-label">1</label>
+                                                    </div>
+                                                </td>
+                                                <td>1st</td>
+                                                <td>A</td>
+                                                <td>Maths</td>
+                                                <td>12/06/2020</td>
+                                                <td>14/06/2020</td>
+                                                <td><a href="#">mathsch1.pdf</a></td>
+                                                <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input">
+                                                        <label class="form-check-label">1</label>
+                                                    </div>
+                                                </td>
+                                                <td>1st</td>
+                                                <td>A</td>
+                                                <td>Maths</td>
+                                                <td>12/06/2020</td>
+                                                <td>14/06/2020</td>
+                                                <td><a href="#">mathsch1.pdf</a></td>
+                                                <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input">
+                                                        <label class="form-check-label">1</label>
+                                                    </div>
+                                                </td>
+                                                <td>1st</td>
+                                                <td>A</td>
+                                                <td>Maths</td>
+                                                <td>12/06/2020</td>
+                                                <td>14/06/2020</td>
+                                                <td><a href="#">mathsch1.pdf</a></td>
+                                                <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input">
+                                                        <label class="form-check-label">1</label>
+                                                    </div>
+                                                </td>
+                                                <td>1st</td>
+                                                <td>A</td>
+                                                <td>Maths</td>
+                                                <td>12/06/2020</td>
+                                                <td>14/06/2020</td>
+                                                <td><a href="#">mathsch1.pdf</a></td>
+                                                <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input">
+                                                        <label class="form-check-label">1</label>
+                                                    </div>
+                                                </td>
+                                                <td>1st</td>
+                                                <td>A</td>
+                                                <td>Maths</td>
+                                                <td>12/06/2020</td>
+                                                <td>14/06/2020</td>
+                                                <td><a href="#">mathsch1.pdf</a></td>
+                                                <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input">
+                                                        <label class="form-check-label">1</label>
+                                                    </div>
+                                                </td>
+                                                <td>1st</td>
+                                                <td>A</td>
+                                                <td>Maths</td>
+                                                <td>12/06/2020</td>
+                                                <td>14/06/2020</td>
+                                                <td><a href="#">mathsch1.pdf</a></td>
+                                                <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input">
+                                                        <label class="form-check-label">1</label>
+                                                    </div>
+                                                </td>
+                                                <td>1st</td>
+                                                <td>A</td>
+                                                <td>Maths</td>
+                                                <td>12/06/2020</td>
+                                                <td>14/06/2020</td>
+                                                <td><a href="#">mathsch1.pdf</a></td>
+                                                <td><i class="fas fa-trash text-danger actionbtn"></i> <i class="fas fa-edit text-success actionbtn"></i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="col-lg-2 col-12 form-group">
+                                        <button type="submit" class="fw-btn-fill btn-gradient-yellow">Download</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Student Attendence Area End Here -->
+                <footer class="footer-wrap-layout1">
+                    <div class="copyright">© 2020 Copyrights <a href="https://www.salujagoldschool.com/" target="_blank">Saluja Gold International SchoolN.</a> All rights reserved. Designed & Developed by <a href="https://www.india-interactive.net/" target="_blank">India Interactive</a></div>
+            </div>
+            </footer>
+        </div>
+    </div>
+    <!-- Page Area End Here -->
+    </div>
+    <!-- jquery-->
+    <script src="/CssScript/js/jquery-3.3.1.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/CssScript/js/plugins.js"></script>
+    <!-- Popper js/CssScript/ -->
+    <script src="/CssScript/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/CssScript/js/bootstrap.min.js"></script>
+    <!-- Select 2 Js -->
+    <script src="/CssScript/js/select2.min.js"></script>
+    <!-- Scroll Up Js -->
+    <script src="/CssScript/js/jquery.scrollUp.min.js"></script>
+    <!-- Data Table Js -->
+    <script src="/CssScript/js/jquery.dataTables.min.js"></script>
+    <!-- Custom Js -->
+    <script src="/CssScript/js/main.js"></script>
+    <script src="~/Scripts/Product/Homework.js"></script>
+</body>
+
+</html>

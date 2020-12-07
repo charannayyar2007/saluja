@@ -1,0 +1,344 @@
+﻿@using System.Data;
+@{
+    ViewBag.Title = "View Result";
+    // Layout = "~/Views/Shared/_ResultLayout.cshtml";
+    Layout = null;
+}
+
+<div class="modal-dialog modal-lgr">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="col-lg-2 col-12 form-group" style="float: right;">
+                                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">Download</button>
+                                </div>
+                                <table class="wheat" width="100%" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td><img src="img/admin.png" alt="logo"></td>
+                                            <td>
+                                                <h1>SALUJA GOLD INTERNATIONAL SCHOOL</h1>
+                                                <h3>NH-114A, Motileda, Giridih (Jharkhand)</h3>
+                                                <p>Email- <span style="color: blue;">reachus@salujagoldschool.com</span>, Contact- 6207900130, 6207900131</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="hesdclr mt-4 mb-0">Academic Session: 2019-20</h3>
+                                <h4 class="hesdclr">Annual Report Card</h4>
+                                <table class="table table1 table-bordered table-striped table-responsive">
+                                    <tbody>
+                                        <tr> </tr>
+                                        <tr> </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="table-responsive step-1">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" colspan="2" class="themeclr head-bg text-center">Basic Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (ViewBag.StudentDetails != null)
+                                            {
+                                                foreach (DataRow item in ViewBag.StudentDetails.Rows)
+                                                {
+                                            <tr>
+                                                <th class="text-left profile">Roll No:</th>
+                                                <td class="text-center">@Convert.ToString(item["rollNo"])</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-left profile">Student's Name:</th>
+                                                <td class="text-center">@Convert.ToString(item["name"])</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-left profile">Mother's Name:</th>
+                                                <td class="text-center">@Convert.ToString(item["motherName"])</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-left profile">Date of Birth:</th>
+                                                <td class="text-center">@Convert.ToDateTime(item["DOB"]).ToString("dd-MMM-yyyy")</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-left profile">Grade:</th>
+                                                <td class="text-center">03</td>
+                                            </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="new-table table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th scope="col" colspan="3" class="themeclr head-bg text-center">Total Attendance</th>
+                                    </tr>
+
+                                    <tr class="text-center">
+                                        <td class="attendance-td">55 / 55</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="new-table table table-bordered step-4">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="col" colspan="3" class="themeclr head-bg text-center">Health Card</th>
+                                            </tr>
+                                            <tr>
+                                                <td class="tdbold" colspan="3">Height :</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Set 1</td>
+                                                <td colspan="2" class="text-center">131 (Cm)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Set 2</td>
+                                                <td colspan="2" class="text-center">131 (Cm)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tdbold" colspan="3">Weight :</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Set 1</td>
+                                                <td colspan="2" class="text-center">27.1 (Kg)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Set 2</td>
+                                                <td colspan="2" class="text-center">27.1 (Kg)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tdbold" colspan="3">Vision :</td>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="2" class="text-center">(L)</th>
+                                                <th class="text-center">(R)</th>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td colspan="2" class="text-center">6/9</td>
+                                                <td>6/9 (Concern)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="tdbold" colspan="3">Dental Hygiene : &nbsp; &nbsp; &nbsp;<span>OK</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="table-responsive step-5">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="themeclr head-bg">Student Profile</th>
+                                                <th scope="col" class="head-bg text-center">Evaluation 1</th>
+                                                <th scope="col" class="head-bg text-center">Evaluation 2</th>
+                                                <th scope="col" class="head-bg text-center">Evaluation 3</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="profile">Attends school regularly and punctually</td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="profile">Follows classroom rules and routines</td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="profile">Accepts others' thoughts and opinions and respects all in a group</td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="profile">Uses classroom materials properly</td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="profile">Shows eagerness and curiosity as a learner</td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="profile">Completes assigned tasks successfully</td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="profile">Takes responsibility for actions</td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                                <td class="text-center"><input type="text" class="inputs2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1" class="text-center">Date</td>
+                                                <td colspan="4">22-sep-2020</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="2"><strong>Description:</strong></td>
+                                                <td><strong><em>Score:</em></strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Exceeding</td>
+                                                <td>Attempts more challenging tasks</td>
+                                                <td>9 and above</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Meeting</td>
+                                                <td>Is able to accomplish the task independently</td>
+                                                <td>7 to 8.9</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Approaching</td>
+                                                <td>Is able to accomplish the task with some support</td>
+                                                <td>4 to 6.9</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Beginning</td>
+                                                <td>Is able to accomplish the task with considerable support</td>
+                                                <td>
+                                                    <table hspace="0" vspace="0" cellspacing="0" cellpadding="0" align="left">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Below 4</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">Note: All skills are appropriate to grade levels</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered welcome" width="100%">
+                                        <tbody>
+                                            @if (ViewBag.Subject != null)
+                                            {
+                                                foreach (DataRow item in ViewBag.Subject.Rows)
+                                                {
+                                                    <tr class="gren-row">
+                                                        <td><strong>@Convert.ToString(item["Subject"])</strong></td>
+                                                        <td><strong>E-1</strong></td>
+                                                        <td><strong>E-2</strong></td>
+                                                        <td><strong>E-3</strong></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td><input type="text" class="inputs"></td>
+                                                        <td><input type="text" class="inputs"></td>
+                                                        <td><input type="text" class="inputs"></td>
+                                                    </tr>
+                                                    <tr class="yel-row">
+                                                        <td colspan="4"><strong><em>Comments:&nbsp; </em></strong> <span><input type="text" class="inputs-cmnt"></span></td>
+                                                    </tr>
+                                                }
+                                            }
+
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <p><strong>Class Teacher's remarks: </strong> <input type="text" class="inputs-cmnt"></p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="table-responsive step-3">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <th style="width:33%;">Place: <input type="text" class="inputs"></th>
+                                                <th> Signature of Class Teacher: <img src="images/signtature.jpg" style="height: 40px;"></th>
+                                                <th> Signature of Principal: <img src="images/signtature.jpg" style="height: 40px;"></th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-md-12 text-center">
+
+
+
+                                <button type="submit" class="fw-btn-fill btn-gradient-yellow width20">Save Result</button>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

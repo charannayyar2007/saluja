@@ -1,0 +1,290 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="breadcrumbs-area">
+    <h3>Student Management</h3>
+</div>
+<div class="row">
+    <!-- Add Transport Area Start Here -->
+    <div class="col-12-xxxl col-12">
+        <div class="card height-auto">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        <h3>Add New Student</h3>
+                    </div>
+                </div>
+                <form class="new-added-form" method="post" action="/Admin/AddStudent">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Admission ID *</label>
+                            <input type="text" placeholder="" name="AdmissionId" class="form-control">
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>First Name *</label>
+                            <input type="text" placeholder="" name="FirstName" class="form-control">
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Last Name *</label>
+                            <input type="text" placeholder="" name="LastName" class="form-control">
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Gender *</label>
+                            <select class="select2 form-control" name="Gender">
+                                <option value="">Please Select Gender *</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Date Of Birth *</label>
+                            <input type="date" class="form-control" name="">
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Father's Name *</label>
+                            <input type="text" name="FatherName" placeholder="" class="form-control">
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Mother's Name *</label>
+                            <input type="text" placeholder="" name="MotherName" class="form-control">
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Class *</label>
+                            <select class="select2 form-control" name="ClassId">
+                                <option value="">Please Select Class *</option>
+                                @foreach (var cls in Model.ClassesMasters)
+                                {
+                                    <option value="@cls.Id">@cls.ClassName</option>
+                                }
+
+                            </select>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Section *</label>
+                            <select class="select2 form-control" name="SectionId">
+                                <option value=""> Please Select Section *</option>
+                                @foreach (var cls in Model.SectionsMasters)
+                                {
+                                    <option value="@cls.Id">@cls.SectionName</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Roll No.</label>
+                            <input type="text" placeholder="" name="RollNo" class="form-control">
+
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>E-Mail</label>
+                            <input type="email" placeholder="" name="Email" class="form-control">
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-12 form-group">
+                            <label>Phone *</label>
+                            <input type="text" placeholder="" name="Phone" class="form-control">
+                        </div>
+                        <div class="col-lg-6 col-6 form-group mg-t-30">
+                            <label class="text-dark-medium">Upload Student Photo</label>
+                            <input type="file" class="form-control-file">
+                        </div>
+                        <div class="col-lg-6 col-6 form-group mg-t-30">
+                            <label class="text-dark-medium">Upload Excel Sheet</label>
+                            <input type="file" class="form-control-file">
+                        </div>
+                        <div class="col-12 form-group mg-t-8">
+                            <button type="submit" class="btn-fill-lg btn-gradient-yellow btn-hover-bluedark">Save</button>
+                            <button type="reset" class="btn-fill-lg bg-blue-dark btn-hover-yellow">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Add Transport Area End Here -->
+    <!-- All Transport List Area Start Here -->
+    <div class="col-12-xxxl col-12">
+        <div class="card height-auto">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        <h3>All Students List</h3>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper no-footer">
+                        <table class="table display data-table text-nowrap dataTable no-footer" id="DataTables_Table_StudentList" role="grid">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" rowspan="1" colspan="1" aria-label="Admission ID" style="width: 96px;">Admission ID</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">First Name </th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">Last Name</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">Gender</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">Date Of Birth</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">Father's Name</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">Mother's Name</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">Class</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">Section</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">Roll No.</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">E-Mail</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-label="Name : activate to sort column ascending" style="width: 79px;">Action</th>
+
+                                </tr>
+                            </thead>
+
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- All Transport List Area End Here -->
+</div>
+
+
+@section scripts{
+    <script src="~/Scripts/Product/Keys.js"></script>
+    <script src="~/Scripts/Product/Common.js"></script>
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+
+    <script>
+        var Popup, dataTable;
+        $(document).ready(function () {
+            AjaxCallWithOutStorage("/GetAllStudent?start=1&end=300", "get").then(data => {
+                debugger;
+                setTimeout(function () {
+                    $('#DataTables_Table_StudentList').DataTable({
+                        stateSave: true,
+                        "bDestroy": true,
+                        data: data,
+                        columns: [{
+                            data: "AdmissionId"
+                        },
+                        { data: "FirstName" },
+                        { data: "LastName" },
+                        { data: "Gender" },
+                        { data: "Dob" },
+                        { data: "FatherName" },
+                        { data: "MotherName" },
+                        { data: "ClassName" },
+                        { data: "Section" },
+                        { data: "RollNo" },
+                        ]
+                    });
+                    document.getElementById("loaders").style.display = "none"
+                }, 200)
+            });
+
+            //dataTable = $("#DataTables_Table_StudentList").DataTable({
+            //    "ajax": {
+            //        "url": "/GetAllStudent",
+            //        "type": "GET",
+            //        "datatype": "json"
+            //    },
+            //    "columns": [
+            //        {
+            //            data: "AdmissionId"
+            //        },
+            //        { data: "FirstName" },
+            //        { data: "LastName" },
+            //        { data: "Gender" },
+            //        { data: "Dob" },
+            //        { data: "FatherName" },
+            //        { data: "MotherName" },
+            //        { data: "ClassName" },
+            //        { data: "Section" },
+            //        { data: "RollNo" }
+
+
+            //    ],
+            //    "language": {
+
+            //        "emptyTable" : "No data found, Please click on <b>Add New</b> Button"
+            //    }
+            //});
+        });
+
+        function PopupForm(url) {
+            var formDiv = $('<div/>');
+            $.get(url)
+            .done(function (response) {
+                formDiv.html(response);
+
+                Popup = formDiv.dialog({
+                    autoOpen: true,
+                    resizable: false,
+                    title: 'Fill Employee Details',
+                    height: 500,
+                    width: 700,
+                    close: function () {
+                        Popup.dialog('destroy').remove();
+                    }
+
+                });
+            });
+        }
+
+        function SubmitForm(form) {
+            $.validator.unobtrusive.parse(form);
+            if($(form).valid()){
+                $.ajax({
+                    type : "POST",
+                    url : form.action,
+                    data : $(form).serialize(),
+                    success : function (data) {
+                        if(data.success)
+                        {
+                            Popup.dialog('close');
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message,{
+                                globalPosition :"top center",
+                                className : "success"
+                            })
+
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+
+        function Delete(id) {
+            if(confirm('Are You Sure to Delete this Employee Record ?'))
+            {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete","Employee")/' + id,
+                    success: function (data) {
+                        if (data.success)
+                        {
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+
+                        }
+                    }
+
+                });
+            }
+        }
+    </script>
+}

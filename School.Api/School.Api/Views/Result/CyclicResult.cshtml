@@ -1,0 +1,166 @@
+﻿@using System.Data;
+@{
+    ViewBag.Title = "CyclicResult";
+    Layout = null;
+}
+
+<div class="modal-dialog modal-lgr">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="col-lg-2 col-12 form-group" style="float: right;">
+                                    <button type="submit" class="fw-btn-fill btn-gradient-yellow">Download PDF</button>
+                                </div>
+                                <table class="wheat" width="100%" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style=""><img src="img/admin.png" alt="logo"></td>
+                                            <td style="">
+                                                <h1>SALUJA GOLD INTERNATIONAL SCHOOL</h1>
+                                                <h3 style="">NH-114A, Motileda, Giridih (Jharkhand)</h3>
+                                                <p style="">Email- <span style="color: blue;">reachus@salujagoldschool.com</span>, Contact- 6207900130, 6207900131</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="hesdclr mt-4 mb-0">Academic Session: 2019-20</h3>
+                                <h4 class="hesdclr">Cycle Test 1</h4>
+                                <table class="table table1 table-bordered table-striped table-responsive">
+                                    <tbody>
+                                        <tr> </tr>
+                                        <tr> </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="table-responsive step-1">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" colspan="2" class="themeclr head-bg text-center">Basic Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (ViewBag.StudentDetails != null)
+                                            {
+                                                foreach (DataRow item in ViewBag.StudentDetails.Rows)
+                                                {
+                                                    <tr>
+                                                        <th class="text-left profile">Name of Student: </th>
+                                                        <td class="text-center">@Convert.ToString(item["name"])</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-left profile"> Enrollment ID: </th>
+                                                        <td class="text-center">@Convert.ToString(item["admissionId"])</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-left profile"> Class: </th>
+                                                        <td class="text-center">@Convert.ToString(item["classId"])</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-left profile"> Roll No: </th>
+                                                        <td class="text-center">@Convert.ToString(item["rollNo"])</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-left profile">Date of Birth:</th>
+                                                        <td class="text-center">@Convert.ToDateTime(item["DOB"]).ToString("dd-MMM-yyyy")</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-left profile">Learning Cycle: </th>
+                                                        <td class="text-center">Seven</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-left profile">Mother's name: </th>
+                                                        <td class="text-center">@Convert.ToString(item["mothername"])</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="text-left profile">Father's/Guardian's name: </th>
+                                                        <td class="text-center">@Convert.ToString(item["fathername"])</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="table-responsive step-2">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="themeclr head-bg" style=" text-align: center;">Subjects</th>
+                                                <th scope="col" class="head-bg" style=" text-align: center;">Max. Marks</th>
+                                                <th scope="col" class="head-bg" style=" text-align: center;">Marks Obtained</th>
+                                                <th scope="col" class="head-bg" style=" text-align: center;">My Effort Grade</th>
+                                                <th scope="col" class="head-bg" style=" text-align: center;">My Improvement Goals</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (ViewBag.Subject != null && ViewBag.Marks != null)
+                                            {
+                                                foreach (DataRow item in ViewBag.Subject.Rows)
+                                                {
+                                                    <tr>
+                                                        <th class="profile" scope="column">@Convert.ToString(item["Subject"])</th>
+                                                        <td class="text-center">10</td>
+                                                        @{ 
+                                                            DataTable dt = new DataTable();
+                                                            dt = ViewBag.Marks;
+                                                            double marks = 0;
+                                                            DataRow dr = dt.AsEnumerable().SingleOrDefault(r => r.Field<int>("SubId") == Convert.ToInt32(item["id"]));
+                                                            if(dr != null)
+                                                            {
+                                                                marks = Convert.ToDouble(dr["EvaluationMarks"]);
+                                                            }
+                                                        }
+                                                        <td class="text-center">@marks</td>
+                                                        <td class="text-center">C1</td>
+                                                        <td class="text-center">I need to work extra to perform better.</td>
+                                                    </tr>
+                                                                }
+                                                            }
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <div class="table-responsive step-3">
+                                    <table class="table table-bordered" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <th><strong>Class Teacher's Signature:</strong></th>
+                                                <th><strong>Principal's Signature:</strong></th>
+                                                <th><strong>Signature of Parent / Guardian:</strong></th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,6 @@
+E:\Applications\School\School.Api\Utility.School\bin\Debug\School.Utility.dll
+E:\Applications\School\School.Api\Utility.School\bin\Debug\School.Utility.pdb
+E:\Applications\School\School.Api\Utility.School\obj\Debug\School.Utility.csproj.CoreCompileInputs.cache
+E:\Applications\School\School.Api\Utility.School\obj\Debug\School.Utility.dll
+E:\Applications\School\School.Api\Utility.School\obj\Debug\School.Utility.pdb
+E:\Applications\School\School.Api\Utility.School\obj\Debug\School.Utility.csprojAssemblyReference.cache

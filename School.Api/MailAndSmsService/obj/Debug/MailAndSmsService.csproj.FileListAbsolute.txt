@@ -1,0 +1,6 @@
+E:\Applications\School\School.Api\MailAndSmsService\bin\Debug\MailAndSmsService.dll
+E:\Applications\School\School.Api\MailAndSmsService\bin\Debug\MailAndSmsService.pdb
+E:\Applications\School\School.Api\MailAndSmsService\obj\Debug\MailAndSmsService.csproj.CoreCompileInputs.cache
+E:\Applications\School\School.Api\MailAndSmsService\obj\Debug\MailAndSmsService.dll
+E:\Applications\School\School.Api\MailAndSmsService\obj\Debug\MailAndSmsService.pdb
+E:\Applications\School\School.Api\MailAndSmsService\obj\Debug\MailAndSmsService.csprojAssemblyReference.cache

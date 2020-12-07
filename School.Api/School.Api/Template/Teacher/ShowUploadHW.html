@@ -1,0 +1,66 @@
+﻿<script id="ShowHWTempalte" type="text/x-jquery-tmpl">
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        <h3>All Homework List</h3>
+                    </div>
+                </div>
+                <div class="mg-b-20">
+                    <div class="row gutters-8">
+                        <div class="col-lg-4 col-12 form-group">
+                            <label>Class</label>
+                            <select class="select2 form-control" id="txtclass" required onchange="GetSubjectforShowHW()">
+                                <option value="0">All Class</option>
+                                {{each(i) ClassesMasters}}
+                                <option value="${Id}">${ClassName}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-12 form-group">
+                            <label>Subject</label>
+                            <select class="select2 form-control" id="txtsub" required onclick="CheckClassvalueforshowHW()">
+                                <option value="0">All Subject</option>
+                                {{each(i) SubjectsMasters}}
+                                <option value="${Id}">${Subject}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-12 form-group">
+                            <label>Upload Date</label>
+                            <input type="date" placeholder="Date" class="form-control" id="txtdate" onchange="CheckValue()">
+                        </div>
+                        <div class="col-lg-2 col-12 form-group">
+                            <label></label>
+                            <span type="submit" class="fw-btn-fill btn-gradient-yellow" onclick="SearchHW()">SEARCH</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+
+                    <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper no-footer">
+                    <table class="table display data-table text-nowrap dataTable no-footer" id="DataTables_Table_1" role="grid" data-order='[[0,"desc"]]'>
+
+
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Class : activate to sort column ascending" style="width: 79px;">Class </th>
+                                <th class="sorting" tabindex="1" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Section: activate to sort column ascending" style="width: 78px;">Section</th>
+                                <th class="sorting" tabindex="2" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Subject: activate to sort column ascending" style="width: 52px;">Subject</th>
+                                <th class="sorting" tabindex="3" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Upload Date: activate to sort column ascending" style="width: 93px;">Upload Date</th>
+                                <th class="sorting" tabindex="7" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Last's Submission Date: activate to sort column ascending" style="width: 55px;">Last's Submission Date</th>
+                                <th class="sorting" tabindex="4" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="HomeWork File: activate to sort column ascending" style="width: 109px;">HomeWork File</th>
+                                <th class="sorting" tabindex="6" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 40px;">Action</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+</div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
